@@ -14,7 +14,7 @@ import com.exponentus.dataengine.jpa.SecureAppEntity;
 @NamedQuery(name = "Activity.findAll", query = "SELECT m FROM Activity AS m ORDER BY m.regDate")
 public class Activity extends SecureAppEntity<UUID> {
 
-	protected String rfid;
+	private String rfid;
 
 	private Date time;
 
