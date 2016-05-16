@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<vocabulary primary="ENG">
+    <sentence mode="on" keyword="office_memo">
+        <entry lang="RUS">Служебные записки</entry>
+        <entry lang="ENG">Officememo</entry>
+    </sentence>
+    <sentence mode="on" keyword="signer">
+        <entry lang="RUS">Подписывающий</entry>
+        <entry lang="ENG">Signer</entry>
+    </sentence>
+    <sentence mode="on" keyword="officememo">
+        <entry lang="RUS">Служебная записка</entry>
+        <entry lang="ENG">Officememo</entry>
+    </sentence>
+    <sentence mode="on" keyword="summery">
+        <entry lang="RUS">Краткое содержание</entry>
+        <entry lang="ENG">Summary</entry>
+    </sentence>
+</vocabulary>
