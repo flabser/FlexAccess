@@ -7,9 +7,9 @@ import com.exponentus.scripting._Session;
 
 import flexaccess.model.Activity;
 
-public class ApprovalDAO extends DAO<Activity, UUID> {
+public class ActivityDAO extends DAO<Activity, UUID> {
 
-	public ApprovalDAO(_Session session) {
+	public ActivityDAO(_Session session) {
 		super(Activity.class, session);
 	}
 
