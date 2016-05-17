@@ -3,7 +3,7 @@
         {{'activities' | translate}}
     </h1>
     <div class="content-actions">
-        <form>
+        <form class="pull-left">
             <input type="search" class="q" name="keyword" value="{{search_keyword}}" placeholder="{{'search'}}" required autocomplete="off" (keyup)="search($event)" />
         </form>
         <pagination class="pull-right" totalPages="{{meta.totalPages}}" page="{{meta.page}}" (onPageChange)="goToPage($event)"></pagination>

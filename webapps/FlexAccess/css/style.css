@@ -28,7 +28,7 @@
 
 .content-actions > form {
     margin: 0;
-    padding: 0;
+    padding: 1px 10px;
 }
 
 .entry-captions {
