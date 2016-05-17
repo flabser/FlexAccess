@@ -1,0 +1,38 @@
+.container {
+    max-width: 1024px;
+}
+
+.content-header .header-title {
+    display: inline-block;
+    float: left;
+}
+
+.content-header .content-actions {
+    border: none;
+    display: inline-block;
+    float: right;
+    padding: 8px;
+}
+
+.entry-captions {
+    padding-left: 11px;
+}
+
+pagination:empty {
+    display: none;
+}
+
+
+/* .vw */
+
+.vw-activity-rfid {
+    width: 60%;
+}
+
+.vw-activity-time {
+    width: 15%;
+}
+
+.vw-activity-reg-date {
+    width: 15%;
+}

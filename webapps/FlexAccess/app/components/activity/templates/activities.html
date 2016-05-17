@@ -1,0 +1,28 @@
+<div class="content-header">
+    <h1 class="header-title">
+        {{'activities' | translate}}
+    </h1>
+    <div class="content-actions">
+        <input type="search" class="q" name="keyword" value="{{search_keyword}}" placeholder="{{'search'}}" required autocomplete="off" />
+        <pagination class="pull-right" totalPages="{{meta.totalPages}}" page="{{meta.page}}" (onPageChange)="goToPage($event)"></pagination>
+    </div>
+</div>
+<div class="content-body">
+    <div class="view view-project">
+        <header class="entries-head">
+            <div class="head-wrap">
+                <div class="entry-captions">
+                    <span class="vw-activity-rfid">{{'rfid' | translate}}</span>
+                    <span class="vw-activity-time">{{'time' | translate}}</span>
+                    <span class="vw-activity-reg-date">{{'reg_date' | translate}}</span>
+                </div>
+            </div>
+        </header>
+        <div class="entries">
+            <activity [activity]="activity" *ngFor="let activity of activities"></activity>
+            <div *ngIf="!activities">
+                {{'loading' | translate}}
+            </div>
+        </div>
+    </div>
+</div>

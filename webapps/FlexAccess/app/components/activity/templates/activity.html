@@ -1,0 +1,11 @@
+<div class="entry-wrap" [class.active]="selected">
+    <div class="entry">
+        <a class="entry-link" [routerLink]="['/activities', activity.id]">
+            <div class="entry-fields">
+                <span class="vw-activity-rfid">{{activity.rfid}}</span>
+                <span class="vw-activity-time">{{activity.time | dateFmt}}</span>
+                <span class="vw-activity-reg-date">{{activity.regDate | dateFmt}}</span>
+            </div>
+        </a>
+    </div>
+</div>

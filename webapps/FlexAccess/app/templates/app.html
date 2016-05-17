@@ -1,0 +1,41 @@
+<notifications></notifications>
+<div class="layout">
+    <div class="content-overlay" (mousedown)="hideNav($event)" (touchstart)="hideNav($event)"></div>
+    <header class="header navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <img class="brand-logo" alt="logo" src="img/logo.png" />
+                <span class="brand-title">
+                    {{HEADER_TITLE}}
+                </span>
+            </div>
+            <nav class="navbar-nav navbar-right">
+                <ul class="nav nav-inline navbar-right">
+                    <li dropdown class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" (click)="preventDefault($event)">
+                            <i class="fa fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu right">
+                            <li>
+                                <a class="user-profile" [routerLink]="['/user-profile']">
+                                    {{loggedUser.user_name}}
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="logout" href="#logout" (click)="logout($event)">
+                                    {{'logout' | translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container">
+        <main class="content">
+            <router-outlet></router-outlet>
+        </main>
+    </section>
+</div>
