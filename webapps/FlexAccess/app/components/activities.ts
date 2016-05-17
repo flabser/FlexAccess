@@ -2,24 +2,27 @@ import { Component, Inject } from '@angular/core';
 import { Router, Routes, RouteSegment, RouteTree, OnActivate } from '@angular/router';
 
 import { TranslatePipe } from 'ng2-translate/ng2-translate';
-import { TextTransformPipe } from '../../pipes/text-transform.pipe';
+import { TextTransformPipe } from '../pipes/text-transform.pipe';
+import { DateFormatPipe } from '../pipes/date-format.pipe';
 
-import { NotificationService } from '../../shared/notification';
-import { PaginationComponent } from '../../shared/pagination';
-import { Activity } from '../../models/activity';
-import { ActivityService } from '../../services/activity.service';
-import { ActivityComponent } from './activity';
+import { NotificationService } from '../shared/notification';
+import { PaginationComponent } from '../shared/pagination';
+import { Activity } from '../models/activity';
+import { ActivityService } from '../services/activity.service';
 
 @Component({
     selector: 'activities',
-    template: require('./templates/activities.html'),
-    pipes: [TranslatePipe, TextTransformPipe],
-    directives: [PaginationComponent, ActivityComponent]
+    template: require('../templates/activities.html'),
+    pipes: [DateFormatPipe, TranslatePipe, TextTransformPipe],
+    directives: [PaginationComponent]
 })
+
+@Routes([
+    { path: '/:id', component: ActivitiesComponent },
+])
 
 export class ActivitiesComponent {
     activities: Activity[];
-    selectedActivity: Activity;
     params: any = {};
     meta: any = {};
 
@@ -30,7 +33,11 @@ export class ActivitiesComponent {
     ) { }
 
     routerOnActivate(curr: RouteSegment, prev?: RouteSegment, currTree?: RouteTree, prevTree?: RouteTree) {
-        this.loadData();
+        if (curr.getParam('id')) {
+            this.loadData({ docid: curr.getParam('id') });
+        } else {
+            this.loadData({});
+        }
     }
 
     loadData(params?) {
@@ -44,20 +51,22 @@ export class ActivitiesComponent {
     }
 
     goToPage(params) {
+        this.loadData({ page: params.page });
+    }
+
+    searchRFId(event) {
         this.loadData({
-            page: params.page
+            rfid: event.target.value
         });
     }
-
-    search(event) {
-        console.log(event.target.value);
-    }
-
-    deleteActivity() { }
 
     handleXhrError(errorResponse) {
         if (errorResponse.status === 401) {
             this.router.navigate(['/login']);
         }
+    }
+
+    preventDefault(event) {
+        event.preventDefault();
     }
 }

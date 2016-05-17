@@ -8,8 +8,7 @@ import { Dropdown } from '../shared/dropdown/dropdown';
 
 import { AppService } from '../services/app.service';
 import { ActivityService } from '../services/activity.service';
-import { ActivitiesComponent } from './activity/activities';
-import { ActivityComponent } from './activity/activity';
+import { ActivitiesComponent } from './activities';
 import { UserProfileComponent } from './user-profile';
 import { LoginComponent } from './login';
 import { HomeComponent } from './home';
@@ -25,6 +24,7 @@ import { User } from '../models/user';
 
 @Routes([
     { path: '/', component: HomeComponent },
+    { path: '/activities/:id', component: ActivitiesComponent },
     { path: '/activities', component: ActivitiesComponent },
     { path: '/user-profile', component: UserProfileComponent },
     { path: '/login', component: LoginComponent }

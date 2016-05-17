@@ -26,17 +26,31 @@
     }
 }
 
-.content-actions > form {
-    margin: 0;
-    padding: 1px 10px;
+.entry-captions {
+    padding: 0;
 }
 
-.entry-captions {
-    padding-left: 11px;
+.entry-captions > span {
+    padding: 2px 4px;
+    vertical-align: middle;
 }
+
+.activity-filter {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*.activity-filter input:not(:focus):not(:hover) {
+    border: 1px solid transparent;
+}*/
 
 pagination:empty {
     display: none;
+}
+
+.entry-link:focus {
+    font-weight: bold;
 }
 
 
@@ -47,9 +61,11 @@ pagination:empty {
 }
 
 .vw-activity-time {
-    width: 15%;
+    color: #a94442;
+    width: 20%;
 }
 
 .vw-activity-reg-date {
-    width: 15%;
+    color: #3F51B5;
+    width: 20%;
 }
