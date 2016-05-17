@@ -6,7 +6,9 @@
             <div class="navbar-header">
                 <img class="brand-logo" alt="logo" src="img/logo.png" />
                 <span class="brand-title">
-                    {{HEADER_TITLE}}
+                    <a [routerLink]="['/']">
+                        {{HEADER_TITLE}}
+                    </a>
                 </span>
             </div>
             <nav class="navbar-nav navbar-right">

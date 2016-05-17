@@ -49,6 +49,10 @@ export class ActivitiesComponent {
         });
     }
 
+    search(event) {
+        console.log(event.target.value);
+    }
+
     deleteActivity() { }
 
     handleXhrError(errorResponse) {

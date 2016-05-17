@@ -2,6 +2,12 @@
     max-width: 1024px;
 }
 
+.brand-title > a {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 50px;
+}
+
 .content-header .header-title {
     display: inline-block;
     float: left;
@@ -12,6 +18,17 @@
     display: inline-block;
     float: right;
     padding: 8px;
+}
+
+@media ( max-width: 1024px) {
+    .content-header .content-actions {
+        padding: 6px;
+    }
+}
+
+.content-actions > form {
+    margin: 0;
+    padding: 0;
 }
 
 .entry-captions {

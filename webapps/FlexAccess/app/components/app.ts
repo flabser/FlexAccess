@@ -12,6 +12,7 @@ import { ActivitiesComponent } from './activity/activities';
 import { ActivityComponent } from './activity/activity';
 import { UserProfileComponent } from './user-profile';
 import { LoginComponent } from './login';
+import { HomeComponent } from './home';
 import { User } from '../models/user';
 
 @Component({
@@ -23,7 +24,7 @@ import { User } from '../models/user';
 })
 
 @Routes([
-    { path: '/activities/:id', component: ActivityComponent },
+    { path: '/', component: HomeComponent },
     { path: '/activities', component: ActivitiesComponent },
     { path: '/user-profile', component: UserProfileComponent },
     { path: '/login', component: LoginComponent }
@@ -32,14 +33,10 @@ import { User } from '../models/user';
 export class App implements OnInit {
     loggedUser: User;
     HEADER_TITLE: any = "Projects";
-    isNavCollapsed: Boolean;
-    isSearchOpen: Boolean;
     isMobileDevice: Boolean;
 
     @HostListener('window:resize', ['$event.target']) resize(window) { this.onResize(window); };
     @HostBinding('class.phone') get device() { return this.isMobileDevice; };
-    @HostBinding('class.side-nav-toggle') get toggleNavVisible() { return this.isNavCollapsed; };
-    @HostBinding('class.search-open') get toggleSearch() { return this.isSearchOpen; };
 
     constructor(
         private router: Router,
@@ -50,8 +47,6 @@ export class App implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.isSearchOpen = false;
-        this.isNavCollapsed = false;
         this.loggedUser = new User();
         this.isMobileDevice = this.isMobile();
 
@@ -64,22 +59,6 @@ export class App implements OnInit {
         this.translate.use(userLang);
 
         this.translate.get('brand').subscribe(value => this.HEADER_TITLE = value);
-
-        this.router.navigate(['/activities']);
-    }
-
-    toggleNav() {
-        this.isNavCollapsed = !this.isNavCollapsed;
-    }
-
-    hideNav(event) {
-        event.preventDefault();
-        this.isNavCollapsed = false;
-        this.isSearchOpen = false;
-    }
-
-    searchToggle() {
-        this.isSearchOpen = !this.isSearchOpen;
     }
 
     logout(event) {
