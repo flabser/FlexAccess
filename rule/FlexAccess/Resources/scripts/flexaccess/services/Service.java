@@ -13,6 +13,9 @@ import javax.ws.rs.core.Response;
 
 import com.exponentus.exception.SecureException;
 import com.exponentus.rest.RestProvider;
+import com.exponentus.rest.pojo.Outcome;
+import com.exponentus.rest.pojo.ServerServiceExceptionType;
+import com.exponentus.scripting._Session;
 
 import flexaccess.dao.ActivityDAO;
 import flexaccess.model.Activity;
@@ -24,14 +27,17 @@ public class Service extends RestProvider {
 	@Path("/postactivity/{rfid}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response postActivity(@PathParam("rfid") String rfid, MultivaluedMap<String, String> formParams) {
+		_Session ses = getSession();
 		Activity entity = new Activity();
 		entity.setRfid(rfid);
 		entity.setTime(new Date());
-		ActivityDAO aDao = new ActivityDAO(getSession());
+		ActivityDAO aDao = new ActivityDAO(ses);
+		Outcome outcome = new Outcome();
 		try {
 			aDao.add(entity);
-			return Response.status(HttpServletResponse.SC_OK).entity(entity).build();
+			return Response.status(HttpServletResponse.SC_OK).entity(outcome).build();
 		} catch (SecureException e) {
+			outcome.setMessage(e, ServerServiceExceptionType.SERVER_ERROR, ses.getLang());
 			return Response.status(HttpServletResponse.SC_FORBIDDEN).build();
 		}
 
