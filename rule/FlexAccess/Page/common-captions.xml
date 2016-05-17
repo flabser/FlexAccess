@@ -11,6 +11,8 @@
     <caption name="close"/>
     <caption name="filter"/>
     <caption name="wait_while_document_save"/>
+    <caption name="save_close"/>
+    <caption name="loading"/>
 
     <caption name="reg_date"/>
 
@@ -36,9 +38,9 @@
     <caption name="status"/>
     <caption name="limit_view"/>
     <caption name="interface_lang"/>
-    <caption name="back_to_doc_list"/>
-    <caption name="ft_search_result"/>
 
     <caption name="activities"/>
     <caption name="activity"/>
+    <caption name="rfid"/>
+    <caption name="time"/>
 </rule>

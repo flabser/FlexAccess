@@ -1,19 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <vocabulary primary="ENG">
-    <sentence mode="on" keyword="office_memo">
-        <entry lang="RUS">Служебные записки</entry>
-        <entry lang="ENG">Officememo</entry>
+    <sentence mode="on" keyword="brand">
+        <entry lang="RUS">FlexAcces</entry>
+        <entry lang="ENG">FlexAcces</entry>
     </sentence>
-    <sentence mode="on" keyword="signer">
-        <entry lang="RUS">Подписывающий</entry>
-        <entry lang="ENG">Signer</entry>
+    <sentence mode="on" keyword="activities">
+        <entry lang="RUS">Activities</entry>
+        <entry lang="ENG">Activities</entry>
     </sentence>
-    <sentence mode="on" keyword="officememo">
-        <entry lang="RUS">Служебная записка</entry>
-        <entry lang="ENG">Officememo</entry>
+    <sentence mode="on" keyword="activity">
+        <entry lang="RUS">Activity</entry>
+        <entry lang="ENG">activity</entry>
     </sentence>
-    <sentence mode="on" keyword="summery">
-        <entry lang="RUS">Краткое содержание</entry>
-        <entry lang="ENG">Summary</entry>
+    <sentence mode="on" keyword="rfid">
+        <entry lang="RUS">RFID</entry>
+        <entry lang="ENG">RFID</entry>
+    </sentence>
+    <sentence mode="on" keyword="time">
+        <entry lang="RUS">Время</entry>
+        <entry lang="ENG">Time</entry>
     </sentence>
 </vocabulary>
