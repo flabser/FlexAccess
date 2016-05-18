@@ -13,6 +13,7 @@
     <caption name="wait_while_document_save"/>
     <caption name="save_close"/>
     <caption name="loading"/>
+    <caption name="no_data_for_display"/>
 
     <caption name="reg_date"/>
 

@@ -4,6 +4,10 @@
         <entry lang="RUS">FlexAcces</entry>
         <entry lang="ENG">FlexAcces</entry>
     </sentence>
+    <sentence mode="on" keyword="no_data_for_display">
+        <entry lang="RUS">Нет данных для отображения</entry>
+        <entry lang="ENG">No data for display</entry>
+    </sentence>
     <sentence mode="on" keyword="activities">
         <entry lang="RUS">Activities</entry>
         <entry lang="ENG">Activities</entry>
