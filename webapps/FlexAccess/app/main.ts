@@ -13,10 +13,10 @@ import { NotificationService } from './shared/notification';
 import { AppService } from './services/app.service';
 import { ActivityService } from './services/activity.service';
 
-declare let __PRODUCTION__: any;
-if (__PRODUCTION__) {
-    enableProdMode();
-}
+// declare let __PRODUCTION__: any;
+// if (__PRODUCTION__) {
+enableProdMode();
+// }
 
 bootstrap(App, [
     HTTP_PROVIDERS,

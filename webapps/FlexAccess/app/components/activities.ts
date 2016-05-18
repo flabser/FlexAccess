@@ -17,15 +17,12 @@ import { ActivityService } from '../services/activity.service';
     directives: [PaginationComponent]
 })
 
-@Routes([
-    { path: '/:id', component: ActivitiesComponent },
-])
-
 export class ActivitiesComponent {
     activities: Activity[];
     params: any = {};
     meta: any = {};
     requestProcess: boolean = true;
+    activeActivityId: string = '';
 
     constructor(
         private router: Router,
@@ -42,6 +39,7 @@ export class ActivitiesComponent {
     }
 
     loadData(params?) {
+        this.activeActivityId = '';
         this.requestProcess = true;
         this.activityService.getActivities(params).subscribe(
             data => {
@@ -60,18 +58,17 @@ export class ActivitiesComponent {
     }
 
     searchRFId(event) {
-        this.loadData({
-            rfid: event.target.value
-        });
+        this.loadData({ rfid: event.target.value });
+    }
+
+    goToActivity(activityId, event) {
+        event.preventDefault();
+        this.activeActivityId = activityId;
     }
 
     handleXhrError(errorResponse) {
         if (errorResponse.status === 401) {
             this.router.navigate(['/login']);
         }
-    }
-
-    preventDefault(event) {
-        event.preventDefault();
     }
 }

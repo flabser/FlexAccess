@@ -5,8 +5,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-process.env.NODE_ENV = 'production';
-
 const basePlugins = [
     new webpack.DefinePlugin({
         __DEV__: process.env.NODE_ENV !== 'production',
@@ -58,13 +56,13 @@ module.exports = {
             'reflect-metadata',
 
             '@angular/common',
-            '@angular/compiler',
+            // '@angular/compiler',
             '@angular/core',
             '@angular/http',
             '@angular/platform-browser',
             '@angular/platform-browser-dynamic',
             '@angular/router',
-            '@angular/upgrade',
+            // '@angular/upgrade',
 
             'zone.js',
             'moment',

@@ -24,8 +24,7 @@
         <div class="entries">
             <div class="entry-wrap" *ngFor="let activity of activities">
                 <div class="entry">
-                    <a class="entry-link" href="#" (click)="preventDefault($event)">
-                        <!-- [routerLink]="['/activities', activity.id]" -->
+                    <a class="entry-link" href="#" [class.active]="activity.id == activeActivityId" (click)="goToActivity(activity.id, $event)">
                         <div class="entry-fields">
                             <span class="vw-activity-rfid">{{activity.rfid}}</span>
                             <span class="vw-activity-time">{{activity.time | dateFmt:'DD.MM.YYYY HH:mm'}}</span>

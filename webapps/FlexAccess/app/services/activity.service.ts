@@ -8,7 +8,7 @@ import { Activity } from '../models/Activity';
 import { serializeObj } from '../utils/obj-utils';
 
 const VIEW_URL = 'p?id=activity-view';
-const FORM_URL = 'p?id=activity-form';
+// const FORM_URL = 'p?id=activity-form';
 const HEADER = {
     headers: new Headers({
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
@@ -41,21 +41,5 @@ export class ActivityService {
                     meta: data.meta
                 }
             });
-    }
-
-    getActivityById(projectId: string) {
-        return this.http.get(FORM_URL + '&docid=' + projectId, HEADER)
-            .map(response => <Activity>response.json().objects[1]);
-    }
-
-    deleteActivity(projects: Activity[]) {
-        return this.http.delete(VIEW_URL);
-    }
-
-    //
-    private serializeProject(project: Activity): string {
-        return serializeObj({
-
-        });
     }
 }

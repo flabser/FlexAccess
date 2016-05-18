@@ -40,11 +40,6 @@
     padding: 0;
 }
 
-
-/*.activity-filter input:not(:focus):not(:hover) {
-    border: 1px solid transparent;
-}*/
-
 pagination:empty {
     display: none;
 }
@@ -53,6 +48,7 @@ pagination:empty {
     margin: 10px 0;
 }
 
+.entry-link.active,
 .entry-link:focus {
     font-weight: bold;
 }
