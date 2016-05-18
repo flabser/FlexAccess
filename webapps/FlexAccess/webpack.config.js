@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-process.env.NODE_ENV = '';
+process.env.NODE_ENV = 'production';
 
 const basePlugins = [
     new webpack.DefinePlugin({
