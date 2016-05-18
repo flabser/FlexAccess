@@ -49,6 +49,10 @@ pagination:empty {
     display: none;
 }
 
+.view .alert {
+    margin: 10px 0;
+}
+
 .entry-link:focus {
     font-weight: bold;
 }

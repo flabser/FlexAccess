@@ -34,8 +34,11 @@
                     </a>
                 </div>
             </div>
-            <div *ngIf="!activities">
+            <div class="load" *ngIf="requestProcess">
                 {{'loading' | translate}}
+            </div>
+            <div class="alert alert-info" *ngIf="!requestProcess && !activities.length">
+                {{'no_data_for_display' | translate}}
             </div>
         </div>
     </div>

@@ -25,6 +25,7 @@ export class ActivitiesComponent {
     activities: Activity[];
     params: any = {};
     meta: any = {};
+    requestProcess: boolean = true;
 
     constructor(
         private router: Router,
@@ -41,12 +42,16 @@ export class ActivitiesComponent {
     }
 
     loadData(params?) {
+        this.requestProcess = true;
         this.activityService.getActivities(params).subscribe(
             data => {
                 this.activities = data.activities;
                 this.meta = data.meta;
             },
-            errorResponse => this.handleXhrError(errorResponse)
+            errorResponse => this.handleXhrError(errorResponse),
+            () => {
+                this.requestProcess = false;
+            }
         );
     }
 
