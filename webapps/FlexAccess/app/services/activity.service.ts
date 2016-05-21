@@ -2,13 +2,10 @@ import { Injectable, Inject } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-import { TranslateService } from 'ng2-translate/ng2-translate';
-
 import { Activity } from '../models/Activity';
 import { serializeObj } from '../utils/obj-utils';
 
 const VIEW_URL = 'p?id=activity-view';
-// const FORM_URL = 'p?id=activity-form';
 const HEADER = {
     headers: new Headers({
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
@@ -19,10 +16,7 @@ const HEADER = {
 @Injectable()
 export class ActivityService {
 
-    constructor(
-        private http: Http,
-        private translate: TranslateService
-    ) { }
+    constructor(private http: Http) { }
 
     getActivities(_params = {}) {
         let params: URLSearchParams = new URLSearchParams();

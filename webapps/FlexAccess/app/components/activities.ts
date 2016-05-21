@@ -2,9 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { Router, Routes, RouteSegment, RouteTree, OnActivate } from '@angular/router';
 
 import { TranslatePipe } from 'ng2-translate/ng2-translate';
-import { TextTransformPipe } from '../pipes/text-transform.pipe';
-import { DateFormatPipe } from '../pipes/date-format.pipe';
 
+import { TextTransformPipe, DateFormatPipe } from '../pipes';
 import { NotificationService } from '../shared/notification';
 import { PaginationComponent } from '../shared/pagination';
 import { Activity } from '../models/activity';
@@ -23,6 +22,7 @@ export class ActivitiesComponent {
     meta: any = {};
     requestProcess: boolean = true;
     activeActivityId: string = '';
+    private to;
 
     constructor(
         private router: Router,
@@ -58,7 +58,10 @@ export class ActivitiesComponent {
     }
 
     searchRFId(event) {
-        this.loadData({ rfid: event.target.value });
+        clearTimeout(this.to);
+        this.to = setTimeout(() => {
+            this.loadData({ rfid: event.target.value });
+        }, 300);
     }
 
     goToActivity(activityId, event) {

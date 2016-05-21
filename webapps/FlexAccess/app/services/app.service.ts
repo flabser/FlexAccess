@@ -9,9 +9,7 @@ export class AppService {
 
     private translations: any;
 
-    constructor(
-        private http: Http
-    ) { }
+    constructor(private http: Http) { }
 
     getTranslations() {
         if (this.translations) {

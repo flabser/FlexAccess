@@ -4,15 +4,14 @@ import { FormBuilder, Validators, ControlGroup, Control, FORM_DIRECTIVES } from 
 
 import { TranslatePipe } from 'ng2-translate/ng2-translate';
 
-import { Tabs, Tab } from '../shared/tabs';
-
+import { TAB_DIRECTIVES } from '../shared/tabs';
 import { AppService } from '../services/app.service';
 import { User } from '../models/user';
 
 @Component({
     selector: '[user-profile]',
     template: require('../templates/user-profile.html'),
-    directives: [FORM_DIRECTIVES, Tabs, Tab],
+    directives: [FORM_DIRECTIVES, TAB_DIRECTIVES],
     providers: [FormBuilder],
     pipes: [TranslatePipe]
 })

@@ -4,7 +4,7 @@ import { NotificationService } from './notification.service';
 import { Notification } from './notification';
 
 @Component({
-    selector: 'notifications',
+    selector: 'notification',
     template: `
         <div class="nb-notify-entry-{{notify.type}}"
                 [class.dismiss-click]="notify.delay == 'click'"
@@ -16,7 +16,7 @@ import { Notification } from './notification';
     `
 })
 
-export class NotificationsComponent implements OnInit {
+export class NotificationComponent implements OnInit {
     @HostBinding('class.nb-notify') true;
     @HostBinding('class.hidden') get hidden() { return this.notifications.length == 0; };
 
