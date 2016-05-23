@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<vocabulary primary="ENG">
+    <sentence mode="on" keyword="brand">
+        <entry lang="RUS">FlexAcces</entry>
+        <entry lang="ENG">FlexAcces</entry>
+    </sentence>
+    <sentence mode="on" keyword="no_data_for_display">
+        <entry lang="RUS">Нет данных для отображения</entry>
+        <entry lang="ENG">No data for display</entry>
+    </sentence>
+    <sentence mode="on" keyword="activities">
+        <entry lang="RUS">Activities</entry>
+        <entry lang="ENG">Activities</entry>
+    </sentence>
+    <sentence mode="on" keyword="activity">
+        <entry lang="RUS">Activity</entry>
+        <entry lang="ENG">activity</entry>
+    </sentence>
+    <sentence mode="on" keyword="rfid">
+        <entry lang="RUS">RFID</entry>
+        <entry lang="ENG">RFID</entry>
+    </sentence>
+    <sentence mode="on" keyword="time">
+        <entry lang="RUS">Время</entry>
+        <entry lang="ENG">Time</entry>
+    </sentence>
+</vocabulary>
