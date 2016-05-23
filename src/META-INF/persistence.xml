@@ -25,7 +25,8 @@
 		<!-- Common module entities -->
 		<class>com.exponentus.common.model.Attachment</class>		
 		<!-- Specific application entities -->
-		<class>flexaccess.model.Activity</class>				
+		<class>flexaccess.model.Activity</class>
+		<class>registrar.model.Registration</class>				
 		<!-- Common Staff module entities -->
 		<class>staff.model.Organization</class>
 		<class>staff.model.Department</class>

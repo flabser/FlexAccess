@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.exponentus.common.model.Attachment;
 import com.exponentus.dataengine.jpa.SecureAppEntity;
+
+import reference.model.Country;
+import registrar.model.constants.GenderType;
 
 @Entity
 @Table(name = "registrations")
@@ -16,7 +20,21 @@ public class Registration extends SecureAppEntity<UUID> {
 
 	private String rfid;
 
-	private Date time;
+	private String firstName;
+
+	private String lastName;
+
+	private Date birthDay;
+
+	private GenderType gender;
+
+	private Country citizenship;
+
+	private String docNumber;
+
+	private Date expirationDate;
+
+	private Attachment photo;
 
 	public String getRfid() {
 		return rfid;
@@ -24,14 +42,6 @@ public class Registration extends SecureAppEntity<UUID> {
 
 	public void setRfid(String rfid) {
 		this.rfid = rfid;
-	}
-
-	public Date getTime() {
-		return time;
-	}
-
-	public void setTime(Date time) {
-		this.time = time;
 	}
 
 }
