@@ -54,9 +54,8 @@ public class Service extends RestProvider {
 	@POST
 	@Path("/register")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response register(Registration reg) {
+	public Response register(Registration entity) {
 		_Session ses = getSession();
-		Registration entity = new Registration();
 
 		RegistrationDAO aDao = new RegistrationDAO(ses);
 		Outcome outcome = new Outcome();
