@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-import { User } from '../models/user';
+import { User } from '../models';
 
 @Injectable()
 export class AppService {
@@ -16,10 +16,10 @@ export class AppService {
             return Observable.of(this.translations);
         }
 
-        let header = { headers: new Headers({ 'Accept': 'application/json' }) };
+        let headers = { headers: new Headers({ 'Accept': 'application/json' }) };
         let url = 'p?id=common-captions';
 
-        return this.http.get(url, header).map(response => {
+        return this.http.get(url, headers).map(response => {
             this.translations = response.json().captions;
             return this.translations;
         });

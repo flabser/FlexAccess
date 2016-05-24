@@ -2,30 +2,27 @@ import { Injectable, Inject } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-import { Activity } from '../models/Activity';
-import { serializeObj } from '../utils/obj-utils';
-
-const VIEW_URL = 'p?id=activity-view';
-const HEADER = {
-    headers: new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-        'Accept': 'application/json'
-    })
-};
+import { Activity } from '../models';
 
 @Injectable()
 export class ActivityService {
 
     constructor(private http: Http) { }
 
-    getActivities(_params = {}) {
+    fetchActivities(_params = {}) {
         let params: URLSearchParams = new URLSearchParams();
         for (let p in _params) {
             params.set(p, _params[p]);
         }
 
-        return this.http.get(VIEW_URL, {
-            headers: HEADER.headers,
+        let url = 'p?id=activity-view';
+        let headers = new Headers({
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+            'Accept': 'application/json'
+        });
+
+        return this.http.get(url, {
+            headers: headers,
             search: params
         })
             .map(response => response.json().objects[0])

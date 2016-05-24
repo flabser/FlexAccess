@@ -5,8 +5,7 @@ import { TranslatePipe, TranslateService } from 'ng2-translate/ng2-translate';
 
 import { NotificationService, NotificationComponent } from '../shared/notification';
 import { DROPDOWN_DIRECTIVES } from '../shared/dropdown';
-import { AppService } from '../services/app.service';
-import { ActivityService } from '../services/activity.service';
+import { AppService } from '../services';
 import { ActivitiesComponent } from './activities';
 import { UserProfileComponent } from './user-profile';
 import { LoginComponent } from './login';
@@ -29,7 +28,7 @@ import { User } from '../models/user';
     { path: '/login', component: LoginComponent }
 ])
 
-export class App implements OnInit {
+export class App {
     loggedUser: User;
     HEADER_TITLE: any = "Projects";
     isMobileDevice: Boolean;
@@ -41,8 +40,7 @@ export class App implements OnInit {
         private router: Router,
         public translate: TranslateService,
         public notificationService: NotificationService,
-        private appService: AppService,
-        private activityService: ActivityService
+        private appService: AppService
     ) { }
 
     ngOnInit() {

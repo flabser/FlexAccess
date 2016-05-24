@@ -6,11 +6,11 @@ import { TranslatePipe } from 'ng2-translate/ng2-translate';
 import { TextTransformPipe, DateFormatPipe } from '../pipes';
 import { NotificationService } from '../shared/notification';
 import { PaginationComponent } from '../shared/pagination';
-import { Activity } from '../models/activity';
-import { ActivityService } from '../services/activity.service';
+import { Activity } from '../models';
+import { ActivityService } from '../services';
 
 @Component({
-    selector: 'activities',
+    selector: '[activities]',
     template: require('../templates/activities.html'),
     pipes: [DateFormatPipe, TranslatePipe, TextTransformPipe],
     directives: [PaginationComponent]
@@ -20,7 +20,7 @@ export class ActivitiesComponent {
     activities: Activity[];
     params: any = {};
     meta: any = {};
-    requestProcess: boolean = true;
+    request: string;
     activeActivityId: string = '';
     private to;
 
@@ -40,15 +40,22 @@ export class ActivitiesComponent {
 
     loadData(params?) {
         this.activeActivityId = '';
-        this.requestProcess = true;
-        this.activityService.getActivities(params).subscribe(
+        this.request = 'loading';
+        this.activityService.fetchActivities(params).subscribe(
             data => {
                 this.activities = data.activities;
                 this.meta = data.meta;
             },
-            errorResponse => this.handleXhrError(errorResponse),
+            errorResponse => {
+                this.handleXhrError(errorResponse);
+                this.request = 'error';
+            },
             () => {
-                this.requestProcess = false;
+                if (this.activities.length === 0) {
+                    this.request = 'empty';
+                } else {
+                    this.request = 'loaded';
+                }
             }
         );
     }
