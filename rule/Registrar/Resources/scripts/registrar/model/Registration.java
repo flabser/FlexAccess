@@ -115,4 +115,10 @@ public class Registration extends SecureAppEntity<UUID> {
     public String getPhotoUrl() {
         return photo == null ? null : photo.getIdentifier();
     }
+
+    @JsonIgnore
+    @Override
+    public String getURL() {
+        return null;
+    }
 }

@@ -8,13 +8,9 @@
         <entry lang="RUS">Нет данных для отображения</entry>
         <entry lang="ENG">No data for display</entry>
     </sentence>
-    <sentence mode="on" keyword="activities">
-        <entry lang="RUS">Activities</entry>
-        <entry lang="ENG">Activities</entry>
-    </sentence>
-    <sentence mode="on" keyword="activity">
-        <entry lang="RUS">Activity</entry>
-        <entry lang="ENG">activity</entry>
+    <sentence mode="on" keyword="registered">
+        <entry lang="RUS">Registered</entry>
+        <entry lang="ENG">Registered</entry>
     </sentence>
     <sentence mode="on" keyword="rfid">
         <entry lang="RUS">RFID</entry>
@@ -23,5 +19,29 @@
     <sentence mode="on" keyword="time">
         <entry lang="RUS">Время</entry>
         <entry lang="ENG">Time</entry>
+    </sentence>
+    <sentence mode="on" keyword="first_name">
+        <entry lang="RUS">Имя</entry>
+        <entry lang="ENG">First name</entry>
+    </sentence>
+    <sentence mode="on" keyword="last_name">
+        <entry lang="RUS">Фамилия</entry>
+        <entry lang="ENG">Last name</entry>
+    </sentence>
+    <sentence mode="on" keyword="birthday">
+        <entry lang="RUS">Дата рождения</entry>
+        <entry lang="ENG">Birthday</entry>
+    </sentence>
+    <sentence mode="on" keyword="gender">
+        <entry lang="RUS">Пол</entry>
+        <entry lang="ENG">Gender</entry>
+    </sentence>
+    <sentence mode="on" keyword="country">
+        <entry lang="RUS">Страна</entry>
+        <entry lang="ENG">Country</entry>
+    </sentence>
+    <sentence mode="on" keyword="expiration_date">
+        <entry lang="RUS">Срок истечения</entry>
+        <entry lang="ENG">Expiration date</entry>
     </sentence>
 </vocabulary>

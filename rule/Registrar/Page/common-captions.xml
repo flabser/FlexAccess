@@ -40,6 +40,12 @@
     <caption name="limit_view"/>
     <caption name="interface_lang"/>
 
-    <caption name="registration"/>
+    <caption name="registered"/>
     <caption name="rfid"/>
+    <caption name="first_name"/>
+    <caption name="last_name"/>
+    <caption name="birthday"/>
+    <caption name="gender"/>
+    <caption name="country"/>
+    <caption name="expiration_date"/>
 </rule>
