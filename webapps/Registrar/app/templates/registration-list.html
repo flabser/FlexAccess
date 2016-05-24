@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="content-body">
-    <div class="view">
+    <div class="view view-registered">
         <header class="entries-head">
             <div class="head-wrap">
                 <div class="entry-captions">
@@ -20,7 +20,13 @@
                 <div class="entry">
                     <a class="entry-link" href="#" [class.active]="reg.id == selectedId">
                         <div class="entry-fields">
-                            <span class="vw-reg-rfid">{{reg.rfid}}</span>
+                            <span class="vw-photo">{{reg.photoUrl}}</span>
+                            <span class="vw-doc-number">{{reg.docNumber}}</span>
+                            <span class="vw-name">{{reg.firstName}} {{reg.lastName}}</span>
+                            <span class="vw-date">{{reg.birthDay | date}}</span>
+                            <span class="vw-sex">{{reg.gender}}</span>
+                            <span class="vw-citizenship">{{reg.citizenship}}</span>
+                            <span class="vw-date">{{reg.expirationDate | date}}</span>
                         </div>
                     </a>
                 </div>
