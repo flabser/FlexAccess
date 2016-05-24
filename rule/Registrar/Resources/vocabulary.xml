@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <vocabulary primary="ENG">
     <sentence mode="on" keyword="brand">
-        <entry lang="RUS">FlexAcces</entry>
-        <entry lang="ENG">FlexAcces</entry>
+        <entry lang="RUS">Registrar</entry>
+        <entry lang="ENG">Registrar</entry>
     </sentence>
     <sentence mode="on" keyword="no_data_for_display">
         <entry lang="RUS">Нет данных для отображения</entry>

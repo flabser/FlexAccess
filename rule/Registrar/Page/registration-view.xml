@@ -4,7 +4,7 @@
     <xsltfile>DEFAULT</xsltfile>
     <element mode="ON" type="SCRIPT">
         <events>
-            <doscript source="JAVA_CLASS">flexaccess.page.form.ActivityForm</doscript>
+            <doscript source="JAVA_CLASS">registrar.page.view.RegistrationView</doscript>
         </events>
     </element>
 </rule>

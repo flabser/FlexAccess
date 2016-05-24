@@ -40,8 +40,6 @@
     <caption name="limit_view"/>
     <caption name="interface_lang"/>
 
-    <caption name="activities"/>
-    <caption name="activity"/>
+    <caption name="registration"/>
     <caption name="rfid"/>
-    <caption name="time"/>
 </rule>
