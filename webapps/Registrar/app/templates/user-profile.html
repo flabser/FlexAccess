@@ -1,0 +1,175 @@
+<form class="form form-userprofile" autocomplete="off" [ngFormModel]="form">
+    <header class="content-header">
+        <button class="btn-back" type="button" (click)="close($event)">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <h1 class="header-title">
+            {{'employee' | translate}} {{user.name}}
+        </h1>
+        <div class="content-actions">
+            <button class="btn btn-primary" type="button" [disabled]="!form.valid" (click)="updateUserProfile()">
+                {{'save_close' | translate}}
+            </button>
+        </div>
+    </header>
+    <section class="content-body">
+        <tabs>
+            <tab class="tab-pane" tabTitle="{{'properties' | translate}}">
+                <!--<fieldset class="fieldset fieldset-user-avatar">
+                            <img class="user-avatar" src="img/avatar.png"/>
+                </fieldset>-->
+                <fieldset class="fieldset fieldset-user-fields">
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'user_name' | translate}}
+                        </div>
+                        <div class="controls">
+                            <span class="input-placeholder">
+                                {{user.name}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'login_name' | translate}}
+                        </div>
+                        <div class="controls">
+                            <input type="text" class="span3" [(ngModel)]="user.login" ngControl="login" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'password' | translate}}
+                        </div>
+                        <div class="controls">
+                            <input type="password" class="span3" [(ngModel)]="user.pwd" ngControl="pwd" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'password_confirm' | translate}}
+                        </div>
+                        <div class="controls">
+                            <input type="password" class="span3" [(ngModel)]="user.pwd_confirm" ngControl="pwd_confirm" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'email' | translate}}
+                        </div>
+                        <div class="controls">
+                            <input type="email" class="span3" [(ngModel)]="user.email" ngControl="email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'org_name' | translate}}
+                        </div>
+                        <div class="controls">
+                            <span class="input-placeholder">
+                                {{user.organization}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'department' | translate}}
+                        </div>
+                        <div class="controls">
+                            <span class="input-placeholder">
+                                {{user.department}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'position' | translate}}
+                        </div>
+                        <div class="controls">
+                            <span class="input-placeholder">
+                                {{user.position}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'roles' | translate}}
+                        </div>
+                        <div class="controls">
+                            <ul class="input-placeholder list-style-none">
+                                <xsl:for-each select="fields/roles/entry">
+                                    <li>
+                                        <xsl:value-of select="." />
+                                    </li>
+                                </xsl:for-each>
+                            </ul>
+                        </div>
+                    </div>
+                </fieldset>
+            </tab>
+            <tab class="tab-pane" tabTitle="{{'interface' | translate}}">
+                <fieldset class="fieldset">
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'limit_view' | translate}}
+                        </div>
+                        <div class="controls">
+                            <select name="pagesize" class="native span2">
+                                <option value="10">
+                                    <xsl:if test="//pagesize = '10'">
+                                        <xsl:attribute name="selected" select="'selected'" />
+                                    </xsl:if>
+                                    10
+                                </option>
+                                <option value="20">
+                                    <xsl:if test="//pagesize = '20'">
+                                        <xsl:attribute name="selected" select="'selected'" />
+                                    </xsl:if>
+                                    20
+                                </option>
+                                <option value="30">
+                                    <xsl:if test="//pagesize = '30'">
+                                        <xsl:attribute name="selected" select="'selected'" />
+                                    </xsl:if>
+                                    30
+                                </option>
+                                <option value="50">
+                                    <xsl:if test="//pagesize = '50'">
+                                        <xsl:attribute name="selected" select="'selected'" />
+                                    </xsl:if>
+                                    50
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label">
+                            {{'interface_lang' | translate}}
+                        </div>
+                        <div class="controls">
+                            <xsl:variable name="currentlang" select="/request/@lang" />
+                            <select name="lang" class="native span2">
+                                <xsl:for-each select="//query[@entity = 'language']/entry">
+                                    <option value="{viewcontent/lang/@id}">
+                                        <xsl:if test="viewcontent/lang/@id = $currentlang">
+                                            <xsl:attribute name="selected" select="'selected'" />
+                                        </xsl:if>
+                                        <xsl:value-of select="viewcontent/lang" />
+                                    </option>
+                                </xsl:for-each>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label"></div>
+                        <div class="controls">
+                            <a href="javascript:void(0)" data-toggle-theme="theme1" class="input-placeholder">
+                                {{'change_skin' | translate}}
+                            </a>
+                        </div>
+                    </div>
+                </fieldset>
+            </tab>
+        </tabs>
+    </section>
+</form>

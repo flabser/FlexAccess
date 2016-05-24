@@ -1,0 +1,71 @@
+.container {
+    max-width: 1024px;
+}
+
+.brand-title > a {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 50px;
+}
+
+.content-header .header-title {
+    display: inline-block;
+    float: left;
+}
+
+.content-header .content-actions {
+    border: none;
+    display: inline-block;
+    float: right;
+    padding: 8px;
+}
+
+@media ( max-width: 1024px) {
+    .content-header .content-actions {
+        padding: 6px;
+    }
+}
+
+.entry-captions {
+    padding: 0;
+}
+
+.entry-captions > span {
+    padding: 2px 4px;
+    vertical-align: middle;
+}
+
+.activity-filter {
+    margin: 0;
+    padding: 0;
+}
+
+pagination:empty {
+    display: none;
+}
+
+.view .alert {
+    margin: 10px 0;
+}
+
+.entry-link.active,
+.entry-link:focus {
+    font-weight: bold;
+}
+
+
+/* .vw */
+
+.vw-activity-rfid {
+    width: 60%;
+}
+
+.vw-activity-time {
+    color: #a94442;
+    width: 20%;
+}
+
+.vw-activity-reg-date {
+    color: #3F51B5;
+    width: 20%;
+}
