@@ -29,4 +29,20 @@ public class Unit extends SecureAppEntity<UUID> {
 		this.rfid = rfid;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public UnitType getType() {
+		return type;
+	}
+
+	public void setType(UnitType type) {
+		this.type = type;
+	}
+
 }
