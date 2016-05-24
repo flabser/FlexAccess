@@ -1,6 +1,6 @@
 <div class="content-header">
     <h1 class="header-title">
-        {{'registration' | translate}}
+        {{'registered' | translate}}
     </h1>
     <div class="content-actions">
         <pagination class="pull-right" totalPages="{{meta.totalPages}}" page="{{meta.page}}" (onPageChange)="goToPage($event)"></pagination>
@@ -16,11 +16,11 @@
             </div>
         </header>
         <div class="entries">
-            <div class="entry-wrap" *ngFor="let registration of registrationList">
+            <div class="entry-wrap" *ngFor="let reg of registrationList">
                 <div class="entry">
-                    <a class="entry-link" href="#" [class.active]="registration.id == selectedId">
+                    <a class="entry-link" href="#" [class.active]="reg.id == selectedId">
                         <div class="entry-fields">
-                            <span class="vw-reg-rfid">{{registration.rfid}}</span>
+                            <span class="vw-reg-rfid">{{reg.rfid}}</span>
                         </div>
                     </a>
                 </div>
