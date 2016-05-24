@@ -53,7 +53,6 @@
 		<class>reference.model.LawBranch</class>
 		<class>reference.model.ResponsibleType</class>
 		<shared-cache-mode>NONE</shared-cache-mode>
-<<<<<<< HEAD
 	</persistence-unit>	
 	<persistence-unit name="Registrar" transaction-type="RESOURCE_LOCAL">
 		<!-- Obligatory the application module entities -->
@@ -102,7 +101,7 @@
 		<!-- Common module entities -->
 		<class>com.exponentus.common.model.Attachment</class>		
 		<!-- Specific application entities -->
-			
+		<class>stock.model.Unit</class>	
 		<!-- Common Staff module entities -->
 		<class>staff.model.Organization</class>
 		<class>staff.model.Department</class>
