@@ -26,7 +26,6 @@
 		<class>com.exponentus.common.model.Attachment</class>		
 		<!-- Specific application entities -->
 		<class>flexaccess.model.Activity</class>
-		<class>registrar.model.Registration</class>				
 		<!-- Common Staff module entities -->
 		<class>staff.model.Organization</class>
 		<class>staff.model.Department</class>
@@ -54,6 +53,7 @@
 		<class>reference.model.LawBranch</class>
 		<class>reference.model.ResponsibleType</class>
 		<shared-cache-mode>NONE</shared-cache-mode>
+<<<<<<< HEAD
 	</persistence-unit>	
 	<persistence-unit name="Registrar" transaction-type="RESOURCE_LOCAL">
 		<!-- Obligatory the application module entities -->
@@ -130,7 +130,8 @@
 		<class>reference.model.LawBranch</class>
 		<class>reference.model.ResponsibleType</class>
 		<shared-cache-mode>NONE</shared-cache-mode>
-	</persistence-unit>				
+	</persistence-unit>			
+
 	<persistence-unit name="Staff" transaction-type="RESOURCE_LOCAL">
 		<!-- Obligatory the application module entities -->
 		<class>administrator.model.User</class>
