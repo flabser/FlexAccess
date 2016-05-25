@@ -71,9 +71,9 @@ export class RegistrationListComponent {
         }, 300);
     }
 
-    goToActivity(activityId, event) {
+    setSelected(selectedId, event) {
         event.preventDefault();
-        this.selectedId = activityId;
+        this.selectedId = selectedId;
     }
 
     handleXhrError(errorResponse) {

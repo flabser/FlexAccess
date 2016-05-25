@@ -33,15 +33,15 @@
                     </a>
                 </div>
             </div>
-            <div class="load" *ngIf="request === 'loading'">
-                {{'loading' | translate}}
-            </div>
-            <div class="alert alert-info" *ngIf="request === 'empty'">
-                {{'no_data_for_display' | translate}}
-            </div>
-            <div class="alert alert-error" style="color:red;" *ngIf="request === 'error'">
-                {{'request_error' | translate}}
-            </div>
+        </div>
+        <div class="load" *ngIf="request === 'loading'">
+            {{'loading' | translate}}
+        </div>
+        <div class="alert alert-info" *ngIf="request === 'empty'">
+            {{'no_data_for_display' | translate}}
+        </div>
+        <div class="alert alert-error" style="color:red;" *ngIf="request === 'error'">
+            {{'request_error' | translate}}
         </div>
     </div>
 </div>

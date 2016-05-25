@@ -44,6 +44,16 @@ pagination:empty {
     display: none;
 }
 
+.load {
+    background: #FFEB3B;
+    display: inline-block;
+    margin: 2px;
+    padding: 2px 6px;
+}
+
+
+/* .view */
+
 .view .alert {
     margin: 10px 0;
 }
