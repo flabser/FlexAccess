@@ -46,12 +46,7 @@
 		<class>reference.model.Tag</class>	
 		<class>reference.model.OrgCategory</class>
 		<!-- Specific Reference module entities -->
-		<class>reference.model.ClaimantDecisionType</class>	
-		<class>reference.model.DefendantType</class>	
-		<class>reference.model.DisputeType</class>	
-		<class>reference.model.LawArticle</class>
-		<class>reference.model.LawBranch</class>
-		<class>reference.model.ResponsibleType</class>
+		
 		<shared-cache-mode>NONE</shared-cache-mode>
 	</persistence-unit>	
 	<persistence-unit name="Registrar" transaction-type="RESOURCE_LOCAL">
@@ -84,12 +79,7 @@
 		<class>reference.model.Tag</class>	
 		<class>reference.model.OrgCategory</class>
 		<!-- Specific Reference module entities -->
-		<class>reference.model.ClaimantDecisionType</class>	
-		<class>reference.model.DefendantType</class>	
-		<class>reference.model.DisputeType</class>	
-		<class>reference.model.LawArticle</class>
-		<class>reference.model.LawBranch</class>
-		<class>reference.model.ResponsibleType</class>
+		
 		<shared-cache-mode>NONE</shared-cache-mode>
 	</persistence-unit>	
 		<persistence-unit name="Stock" transaction-type="RESOURCE_LOCAL">
@@ -120,14 +110,10 @@
 		<class>reference.model.DepartmentType</class>		
 		<class>reference.model.Position</class>	
 		<class>reference.model.Tag</class>	
-		<class>reference.model.OrgCategory</class>
+		<class>reference.model.OrgCategory</class>		
 		<!-- Specific Reference module entities -->
-		<class>reference.model.ClaimantDecisionType</class>	
-		<class>reference.model.DefendantType</class>	
-		<class>reference.model.DisputeType</class>	
-		<class>reference.model.LawArticle</class>
-		<class>reference.model.LawBranch</class>
-		<class>reference.model.ResponsibleType</class>
+		<class>reference.model.UnitType</class>	
+
 		<shared-cache-mode>NONE</shared-cache-mode>
 	</persistence-unit>			
 
