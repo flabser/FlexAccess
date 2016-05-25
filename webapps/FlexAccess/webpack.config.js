@@ -1,5 +1,8 @@
 'use strict';
 
+// webpack -w
+// set NODE_ENV=production & webpack -p --optimize-minimize --optimize-dedupe
+
 const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,7 +14,9 @@ const basePlugins = [
         __PRODUCTION__: process.env.NODE_ENV === 'production',
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: ['app', 'vendor']
+    }),
     /*new HtmlWebpackPlugin({
         template: './src/index.html',
         inject: 'body',
@@ -28,8 +33,12 @@ const prodPlugins = [
         beautify: false,
         mangle: false,
         comments: false,
+        sourceMap: false,
         compress: {
             warnings: false
+        },
+        output: {
+            comments: false
         }
     }),
     // new CompressionPlugin({
@@ -47,7 +56,7 @@ const plugins = basePlugins
 
 module.exports = {
 
-    devtool: process.env.NODE_ENV !== 'production' ? 'inline-source-map' : '',
+    // devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
 
     entry: {
         app: './app/main.ts',
@@ -72,12 +81,12 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'js'),
-        filename: 'bundle.js',
+        filename: '[name].js',
         publicPath: '/js/'
     },
 
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+        extensions: ['', '.ts', '.js']
     },
 
     plugins: plugins,
