@@ -21,15 +21,15 @@ import { User } from '../models/user';
 })
 
 @Routes([
-    { path: '/', component: HomeComponent },
-    { path: '/activities/:id', component: ActivitiesComponent },
-    { path: '/activities', component: ActivitiesComponent },
+    { path: '/', component: ActivitiesComponent },
     { path: '/user-profile', component: UserProfileComponent },
     { path: '/login', component: LoginComponent }
 ])
 
 export class App {
+    isReady: boolean = false;
     loggedUser: User;
+    language: any;
     HEADER_TITLE: any = "Projects";
     isMobileDevice: Boolean;
 
@@ -41,7 +41,12 @@ export class App {
         public translate: TranslateService,
         public notificationService: NotificationService,
         private appService: AppService
-    ) { }
+    ) {
+        // window.addEventListener('popstate', function() {
+        //     console.log('onpopstate', location.href);
+        //     return true;
+        // });
+    }
 
     ngOnInit() {
         this.loggedUser = new User();
@@ -56,6 +61,13 @@ export class App {
         this.translate.use(userLang);
 
         this.translate.get('brand').subscribe(value => this.HEADER_TITLE = value);
+
+        this.appService.getUserProfile().subscribe((resp: any) => {
+            console.log(resp);
+            this.loggedUser = resp.employee;
+            this.language = resp.language
+            this.isReady = true;
+        });
     }
 
     logout(event) {

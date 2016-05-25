@@ -21,15 +21,15 @@ import { User } from '../models/user';
 })
 
 @Routes([
-    { path: '/', component: HomeComponent },
-    { path: '/registered/:id', component: RegistrationListComponent },
-    { path: '/registered', component: RegistrationListComponent },
+    { path: '/', component: RegistrationListComponent },
     { path: '/user-profile', component: UserProfileComponent },
     { path: '/login', component: LoginComponent }
 ])
 
 export class App {
+    isReady: boolean = false;
     loggedUser: User;
+    language: any;
     HEADER_TITLE: any = "Projects";
     isMobileDevice: Boolean;
 
@@ -56,6 +56,13 @@ export class App {
         this.translate.use(userLang);
 
         this.translate.get('brand').subscribe(value => this.HEADER_TITLE = value);
+
+        this.appService.getUserProfile().subscribe((resp: any) => {
+            console.log(resp);
+            this.loggedUser = resp.employee;
+            this.language = resp.language
+            this.isReady = true;
+        });
     }
 
     logout(event) {
