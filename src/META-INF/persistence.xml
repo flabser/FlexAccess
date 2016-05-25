@@ -112,7 +112,7 @@
 		<class>reference.model.Tag</class>	
 		<class>reference.model.OrgCategory</class>		
 		<!-- Specific Reference module entities -->
-		<class>reference.model.UnitType</class>	
+		<class>reference.model.UnitCategory</class>	
 
 		<shared-cache-mode>NONE</shared-cache-mode>
 	</persistence-unit>			

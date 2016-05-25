@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="FlexAccess" default="replace" basedir="c:\ant">
+    <description></description>
+	
+	
+	<property name="app_NB3.name"			value="nb"/>
+	<property name="app_NB3.dir"			value="c:\workspace\nb"/>
+	<property name="src_NB3.dir"			value="${app_NB3.dir}\src"/>
+	<property name="lib_NB3.dir"			value="${app_NB3.dir}\libs"/>
+	<property name="rule_NB3.dir"			value="${app_NB3.dir}\rule"/>
+	<property name="webapps_NB3.dir"		value="${app_NB3.dir}\webapps"/>
+	<property name="classes_NB3.dir"		value="${app_NB3.dir}\classes"/>
+	<property name="dist_NB3.dir"			value="${app_NB3.dir}\dist"/>
+	<property name="xsl_NB3.dir"			value="${app_NB3.dir}\xsl"/>
+	<property name="src_01.dir"				value="${app_NB3.dir}\rule\Administrator\Resources\scripts"/>
+	<property name="persistance_NB3.dir"	value="${app_NB3.dir}\src"/>
+	
+	<property name="app_CP.name"			value="flexaccess"/>
+	<property name="app_CP.dir"				value="c:\workspace\FlexAccess"/>
+	<property name="classes_CP.dir"			value="${app_CP.dir}\classes"/>
+	<property name="dist_CP.dir"			value="${app_CP.dir}\dist"/>
+	<property name="resources_CP.dir"		value="${app_CP.dir}\resources"/>
+	<property name="rule_CP.dir"			value="${app_CP.dir}\rule"/>
+	<property name="webapps_CP.dir"			value="${app_CP.dir}\webapps"/>
+	<property name="persistance_CP.dir"		value="${app_CP.dir}\src"/>
+	<property name="src1.dir"				value="${app_CP.dir}\rule\FlexAccess\Resources\scripts"/>
+	<property name="src2.dir"				value="${app_CP.dir}\rule\Registrar\Resources\scripts"/>
+	<property name="src3.dir"				value="${app_CP.dir}\rule\Stock\Resources\scripts"/>
+
+	
+	<property name="app_OF.name"			value="officeframe"/>
+	<property name="app_OF.dir"				value="c:\workspace\officeframe"/>
+	<property name="classes_OF.dir"			value="${app_OF.dir}\classes"/>
+	<property name="dist_OF.dir"			value="${app_OF.dir}\dist"/>
+	<property name="resources_OF.dir"		value="${app_OF.dir}\resources"/>
+	<property name="rule_OF.dir"			value="${app_OF.dir}\rule"/>
+	<property name="webapps_OF.dir"			value="${app_OF.dir}\webapps"/>	
+	<property name="src11.dir"				value="${app_OF.dir}\rule\Reference\Resources\scripts"/>
+	<property name="src12.dir"				value="${app_OF.dir}\rule\Staff\Resources\scripts"/>
+	<property name="src13.dir"				value="${app_OF.dir}\rule\Workspace\Resources\scripts"/>
+	<property name="persistance_OF.dir"		value="${app_OF.dir}\src"/>
+	
+	<property name="tmps.dir"			value="c:\tmp\FlexAccessTMP"/>
+	<property name="tmps_rule.dir"		value="${tmps.dir}\rule"/>
+	<property name="tmps_webapps.dir"	value="${tmps.dir}\webapps"/>
+	
+<!-- Backup	-->	
+	<property name="backup.dir"			value="c:\backup\FlexAccess"/>
+
+<!-- work folder	-->
+	<property name="work.dir"			value="C:\tmp\FlexAccess"/>
+	<property name="work.libs"			value="${work.dir}\libs"/>
+	<property name="work.rule"			value="${work.dir}\rule"/>
+	<property name="work.webapps"		value="${work.dir}\webapps"/>
+	<property name="work.xsl"			value="${work.dir}\xsl"/>
+	<property name="work.resources"		value="${work.dir}\resources"/>
+	
+<!-- compile options -->
+	<property name="includeantruntime"	value="false"/>
+	<property name="compile.debug"		value="true"/>
+	<property name="compile.deprecation"	value="false"/>
+	<property name="compile.optimize"	value="true"/>
+	
+	<path id="compile_NB3.classpath">
+		<fileset dir="${lib_NB3.dir}">
+			<include name="**\*.jar"/>
+		</fileset>
+	</path>
+	<path id="compile_CP.classpath">
+		<fileset dir="${lib_NB3.dir}">
+			<include name="**\*.jar"/>
+		</fileset>
+		<fileset dir="${dist_NB3.dir}">
+			<include name="nb.jar"/>
+			<include name="officeframe.jar"/>
+		</fileset>
+	</path>
+	<path id="compile_OF.classpath">
+		<fileset dir="${lib_NB3.dir}">
+			<include name="**\*.jar"/>
+		</fileset>
+		<fileset dir="${dist_NB3.dir}">
+			<include name="nb.jar"/>
+		</fileset>
+	</path>
+	<path id="svnant.classpath">
+			<fileset dir="c:\ant\lib1">
+				<include name="**\*.jar"/>
+			</fileset>
+	</path> 
+
+	
+	<target name="clean" description="Delete generated and temporary directories and files">
+		<delete quiet="true" dir="${classes_NB3.dir}"/>
+	 	<delete quiet="true" dir="${dist_NB3.dir}"/>
+		<delete quiet="true" dir="${classes_CP.dir}"/>
+	 	<delete quiet="true" dir="${dist_CP.dir}"/>
+		<delete quiet="true" dir="${classes_OF.dir}"/>
+	 	<delete quiet="true" dir="${dist_OF.dir}"/>
+		<delete quiet="true" dir="${tmps_rule.dir}"/>
+	 	<delete quiet="true" dir="${tmps_webapps.dir}"/>
+	</target>
+	
+	<target name="prepare" description="Create directories and files before compile">
+	 	<mkdir dir="${classes_NB3.dir}"/>
+	 	<mkdir dir="${dist_NB3.dir}"/>
+		<mkdir dir="${classes_CP.dir}"/>
+	 	<mkdir dir="${dist_CP.dir}"/>
+		<mkdir dir="${classes_OF.dir}"/>
+	 	<mkdir dir="${dist_OF.dir}"/>
+	</target>
+	
+	
+<!-- ++++++++++++++++++++++++++++++++ Compile NB3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
+	<target name="compile_NB3" depends="clean, prepare" description="Compile Java sources">
+		<echo> NB3 compiler </echo>
+		<javac  srcdir="${src_NB3.dir}:${src_01.dir}"
+				destdir="${classes_NB3.dir}"
+				debug="${compile.debug}"
+				deprecation="${compile.deprecation}"
+				optimize="${compile.optimize}"
+				includeantruntime="${includeantruntime}"
+				encoding="utf-8">
+			<classpath refid="compile_NB3.classpath"/>
+			<compilerarg value="-Xlint:unchecked"/>
+			<compilerarg value="-Xlint:deprecation"/>
+       	</javac>
+		<tstamp>
+			<format property="TODAY"
+				pattern="HH:mm d-MMMM-yyyy"
+				locale="en,RU"/>
+		</tstamp>
+		<!--<copy file="${persistance_NB3.dir}\META-INF\persistence.xml" tofile="${classes_NB3.dir}\META-INF\persistence.xml"/>-->
+		<pathconvert property="mf_NB3.classpath" pathsep=" " refid="compile_NB3.classpath">
+			<map from='${lib_NB3.dir}\' to='libs/'/>
+			<filtermapper>
+				<replacestring from="\" to="/"/>
+			</filtermapper>
+		</pathconvert>
+		<copy file="${src_NB3.dir}\log4j.xml" tofile="${classes_NB3.dir}\log4j.xml"/>
+		<jar destfile="${dist_NB3.dir}\${app_NB3.name}.jar">
+			<fileset dir="${classes_NB3.dir}" />
+			<manifest>
+				<attribute name="Built-Date" value="${TODAY}"/>
+				<attribute name="Class-Path" value="${mf_NB3.classpath} libs/${app_CP.name}.jar libs/${app_OF.name}.jar" />
+				<attribute name="Main-Class" value="com.exponentus.server.Server"/>
+			</manifest>			
+		</jar>
+	</target>
+	
+<!-- ++++++++++++++++++++++++++++++++ Compile OF ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<target name="compile_OF" depends="compile_NB3" description="Create JAR distribution">
+	<echo> Officeframe compiler </echo>
+		<javac  srcdir="${src11.dir}:${src12.dir}:${src13.dir}"
+			destdir="${classes_OF.dir}"
+			debug="${compile.debug}"
+			deprecation="${compile.deprecation}"
+			optimize="${compile.optimize}"
+			includeantruntime="${includeantruntime}"
+			encoding="utf-8">
+			<classpath refid="compile_OF.classpath"/>
+			<compilerarg value="-Xlint:unchecked"/>
+			<compilerarg value="-Xlint:deprecation"/>
+       	</javac>
+		<tstamp>
+			<format property="TODAY"
+				pattern="HH:mm d-MMMM-yyyy"
+				locale="en,RU"/>
+		</tstamp>
+		<!--<copy file="${persistance_OF.dir}\META-INF\persistence.xml" tofile="${classes_OF.dir}\META-INF\persistence.xml"/>-->
+		<jar destfile="${dist_NB3.dir}\${app_OF.name}.jar">
+			<fileset dir="${classes_OF.dir}" />
+			<manifest>
+				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>			
+		</jar>
+	</target>	
+	
+ <!-- ++++++++++++++++++++++++++++++++ Compile CP ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
+	<target name="compile_CP" depends="compile_OF" description="Create JAR distribution">
+	<echo> ComProperty compiler </echo>
+		<javac  srcdir="${src1.dir}:${src2.dir}:${src3.dir}"
+			destdir="${classes_CP.dir}"
+			debug="${compile.debug}"
+			deprecation="${compile.deprecation}"
+			optimize="${compile.optimize}"
+			includeantruntime="${includeantruntime}"
+			encoding="utf-8">
+			<classpath refid="compile_CP.classpath"/>
+			<compilerarg value="-Xlint:unchecked"/>
+			<compilerarg value="-Xlint:deprecation"/>
+       	</javac>
+		<tstamp>
+			<format property="TODAY"
+				pattern="HH:mm d-MMMM-yyyy"
+				locale="en,RU"/>
+		</tstamp>
+		<copy file="${persistance_CP.dir}\META-INF\persistence.xml" tofile="${classes_CP.dir}\META-INF\persistence.xml"/>
+		<jar destfile="${dist_NB3.dir}\${app_CP.name}.jar">
+			<fileset dir="${classes_CP.dir}" />
+			<manifest>
+				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>			
+		</jar>
+	</target>
+ 
+	
+	<target name="replace" depends="compile_CP" description="Update of the work system">
+	
+		<copy overwrite="true" todir="${tmps_rule.dir}">
+			<fileset dir="${rule_NB3.dir}"/>
+			<fileset dir="${rule_OF.dir}"/>	
+			<fileset dir="${rule_CP.dir}"/>	
+		</copy>
+		<copy overwrite="true" todir="${tmps_webapps.dir}">
+			<fileset dir="${webapps_NB3.dir}"/>
+			<fileset dir="${webapps_OF.dir}"/>	
+			<fileset dir="${webapps_CP.dir}"/>	
+		</copy>
+		
+		<sync todir="${work.libs}">
+			<fileset dir="${lib_NB3.dir}" />
+		</sync>
+		<sync todir="${work.xsl}">
+			<fileset dir="${xsl_NB3.dir}" />
+		</sync>
+		<sync todir="${work.rule}">
+			<fileset dir="${tmps_rule.dir}" casesensitive="yes">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</sync>
+		<sync todir="${work.webapps}">
+			<fileset dir="${tmps_webapps.dir}" />
+		</sync>
+		<sync todir="${work.resources}">
+			<fileset dir="${resources_CP.dir}" />
+		</sync>
+		<!-- Accountant, Administrator, Reference,Workspace,Staff,MuniciplaProperty -->
+		<echo> 333 </echo>
+		<copy overwrite="true" file="${dist_NB3.dir}\${app_NB3.name}.jar" tofile="${work.dir}\${app_NB3.name}.jar"/>
+		<copy overwrite="true" file="${dist_NB3.dir}\${app_CP.name}.jar" tofile="${work.dir}\libs\${app_CP.name}.jar"/>
+		<copy overwrite="true" file="${dist_NB3.dir}\${app_OF.name}.jar" tofile="${work.dir}\libs\${app_OF.name}.jar"/>
+		<echo> 444 </echo>
+		<!--<copy overwrite="true" file="${backup.dir}\resources\config.properties" tofile="${work.resources}\config.properties"/>-->
+	
+	</target>
+</project>
