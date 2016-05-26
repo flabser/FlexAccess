@@ -3,18 +3,29 @@
     <description></description>
 	
 	
-	<property name="app_NB3.name"			value="nb"/>
-	<property name="app_NB3.dir"			value="c:\workspace\nb"/>
-	<property name="src_NB3.dir"			value="${app_NB3.dir}\src"/>
-	<property name="lib_NB3.dir"			value="${app_NB3.dir}\libs"/>
-	<property name="rule_NB3.dir"			value="${app_NB3.dir}\rule"/>
-	<property name="webapps_NB3.dir"		value="${app_NB3.dir}\webapps"/>
-	<property name="classes_NB3.dir"		value="${app_NB3.dir}\classes"/>
-	<property name="dist_NB3.dir"			value="${app_NB3.dir}\dist"/>
-	<property name="xsl_NB3.dir"			value="${app_NB3.dir}\xsl"/>
-	<property name="src_01.dir"				value="${app_NB3.dir}\rule\Administrator\Resources\scripts"/>
-	<property name="persistance_NB3.dir"	value="${app_NB3.dir}\src"/>
+	<property name="app_nb_jar.name"		value="nb"/>
+	<property name="nb_prj.dir"	           	value="c:\workspace\nb"/>
+	<property name="src_nb.dir"			    value="${nb_prj.dir}\src"/>
+	<property name="libs_nb.dir"			value="${nb_prj.dir}\libs"/>
+	<property name="rule_nb.dir"			value="${nb_prj.dir}\rule"/>
+	<property name="webapps_nb.dir"    		value="${nb_prj.dir}\webapps"/>	
+	<property name="xsl_nb.dir"			    value="${nb_prj.dir}\xsl"/>
+	<property name="src_01.dir"				value="${nb_prj.dir}\rule\Administrator\Resources\scripts"/>
+	<property name="persistence_nb.dir" 	value="${nb_prj.dir}\src"/>
 	
+
+    <property name="officeframe_jar.name"   value="officeframe"/>
+    <property name="officeframe_prj.dir"    value="c:\workspace\officeframe"/>
+    <property name="classes_OF.dir"         value="${officeframe_prj.dir}\classes"/>
+    <property name="dist_OF.dir"            value="${officeframe_prj.dir}\dist"/>
+    <property name="resources_OF.dir"       value="${officeframe_prj.dir}\resources"/>
+    <property name="rule_OF.dir"            value="${officeframe_prj.dir}\rule"/>
+    <property name="webapps_OF.dir"         value="${officeframe_prj.dir}\webapps"/> 
+    <property name="src11.dir"              value="${officeframe_prj.dir}\rule\Reference\Resources\scripts"/>
+    <property name="src12.dir"              value="${officeframe_prj.dir}\rule\Staff\Resources\scripts"/>
+    <property name="src13.dir"              value="${officeframe_prj.dir}\rule\Workspace\Resources\scripts"/>
+    <property name="persistance_OF.dir"     value="${officeframe_prj.dir}\src"/>
+    	
 	<property name="app_jar.name"			value="flexaccess"/>
 	<property name="app_project_source.dir"	value="c:\workspace\FlexAccess"/>
 	<property name="classes_CP.dir"			value="${app_project_source.dir}\classes"/>
@@ -27,21 +38,12 @@
 	<property name="src3.dir"				value="${app_project_source.dir}\rule\Stock\Resources\scripts"/>
 
 	
-	<property name="app_OF.name"			value="officeframe"/>
-	<property name="app_OF.dir"				value="c:\workspace\officeframe"/>
-	<property name="classes_OF.dir"			value="${app_OF.dir}\classes"/>
-	<property name="dist_OF.dir"			value="${app_OF.dir}\dist"/>
-	<property name="resources_OF.dir"		value="${app_OF.dir}\resources"/>
-	<property name="rule_OF.dir"			value="${app_OF.dir}\rule"/>
-	<property name="webapps_OF.dir"			value="${app_OF.dir}\webapps"/>	
-	<property name="src11.dir"				value="${app_OF.dir}\rule\Reference\Resources\scripts"/>
-	<property name="src12.dir"				value="${app_OF.dir}\rule\Staff\Resources\scripts"/>
-	<property name="src13.dir"				value="${app_OF.dir}\rule\Workspace\Resources\scripts"/>
-	<property name="persistance_OF.dir"		value="${app_OF.dir}\src"/>
 	
-	<property name="tmps.dir"			value="c:\tmp\FlexAccessTMP"/>
-	<property name="tmps_rule.dir"		value="${tmps.dir}\rule"/>
-	<property name="tmps_webapps.dir"	value="${tmps.dir}\webapps"/>
+	<property name="tmp.dir"			value="c:\tmp\FlexAccessTMP"/>
+	<property name="tmps_rule.dir"		value="${tmp.dir}\rule"/>
+	<property name="tmps_webapps.dir"	value="${tmp.dir}\webapps"/>
+	<property name="classes_nb.dir"     value="${tmp.dir}\nb\classes"/>
+	<property name="jar_nb.dir"         value="${tmp.dir}\nb\jar"/>
 	
 <!-- Backup	-->	
 	<property name="backup.dir"			value="c:\backup\FlexAccess"/>
@@ -61,24 +63,24 @@
 	<property name="compile.optimize"	value="true"/>
 	
 	<path id="compile_NB3.classpath">
-		<fileset dir="${lib_NB3.dir}">
+		<fileset dir="${libs_nb.dir}">
 			<include name="**\*.jar"/>
 		</fileset>
 	</path>
 	<path id="compile_CP.classpath">
-		<fileset dir="${lib_NB3.dir}">
+		<fileset dir="${libs_nb.dir}">
 			<include name="**\*.jar"/>
 		</fileset>
-		<fileset dir="${dist_NB3.dir}">
+		<fileset dir="${jar_nb.dir}">
 			<include name="nb.jar"/>
 			<include name="officeframe.jar"/>
 		</fileset>
 	</path>
 	<path id="compile_OF.classpath">
-		<fileset dir="${lib_NB3.dir}">
+		<fileset dir="${libs_nb.dir}">
 			<include name="**\*.jar"/>
 		</fileset>
-		<fileset dir="${dist_NB3.dir}">
+		<fileset dir="${jar_nb.dir}">
 			<include name="nb.jar"/>
 		</fileset>
 	</path>
@@ -90,8 +92,8 @@
 
 	
 	<target name="clean" description="Delete generated and temporary directories and files">
-		<delete quiet="true" dir="${classes_NB3.dir}"/>
-	 	<delete quiet="true" dir="${dist_NB3.dir}"/>
+		<delete quiet="true" dir="${classes_nb.dir}"/>
+	 	<delete quiet="true" dir="${jar_nb.dir}"/>
 		<delete quiet="true" dir="${classes_CP.dir}"/>
 	 	<delete quiet="true" dir="${dist_CP.dir}"/>
 		<delete quiet="true" dir="${classes_OF.dir}"/>
@@ -101,8 +103,8 @@
 	</target>
 	
 	<target name="prepare" description="Create directories and files before compile">
-	 	<mkdir dir="${classes_NB3.dir}"/>
-	 	<mkdir dir="${dist_NB3.dir}"/>
+	 	<mkdir dir="${classes_nb.dir}"/>
+	 	<mkdir dir="${jar_nb.dir}"/>
 		<mkdir dir="${classes_CP.dir}"/>
 	 	<mkdir dir="${dist_CP.dir}"/>
 		<mkdir dir="${classes_OF.dir}"/>
@@ -113,8 +115,8 @@
 <!-- ++++++++++++++++++++++++++++++++ Compile NB3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
 	<target name="compile_NB3" depends="clean, prepare" description="Compile Java sources">
 		<echo> NB3 compiler </echo>
-		<javac  srcdir="${src_NB3.dir}:${src_01.dir}"
-				destdir="${classes_NB3.dir}"
+		<javac  srcdir="${src_nb.dir}:${src_01.dir}"
+				destdir="${classes_nb.dir}"
 				debug="${compile.debug}"
 				deprecation="${compile.deprecation}"
 				optimize="${compile.optimize}"
@@ -131,17 +133,17 @@
 		</tstamp>
 		<!--<copy file="${persistance_NB3.dir}\META-INF\persistence.xml" tofile="${classes_NB3.dir}\META-INF\persistence.xml"/>-->
 		<pathconvert property="mf_NB3.classpath" pathsep=" " refid="compile_NB3.classpath">
-			<map from='${lib_NB3.dir}\' to='libs/'/>
+			<map from='${libs_nb.dir}\' to='libs/'/>
 			<filtermapper>
 				<replacestring from="\" to="/"/>
 			</filtermapper>
 		</pathconvert>
-		<copy file="${src_NB3.dir}\log4j.xml" tofile="${classes_NB3.dir}\log4j.xml"/>
-		<jar destfile="${dist_NB3.dir}\${app_NB3.name}.jar">
-			<fileset dir="${classes_NB3.dir}" />
+		<copy file="${src_nb.dir}\log4j.xml" tofile="${classes_nb.dir}\log4j.xml"/>
+		<jar destfile="${jar_nb.dir}\${app_nb_jar.name}.jar">
+			<fileset dir="${classes_nb.dir}" />
 			<manifest>
 				<attribute name="Built-Date" value="${TODAY}"/>
-				<attribute name="Class-Path" value="${mf_NB3.classpath} libs/${app_jar.name}.jar libs/${app_OF.name}.jar" />
+				<attribute name="Class-Path" value="${mf_NB3.classpath} libs/${app_nb_jar.name}.jar libs/${officeframe_jar.name}.jar" />
 				<attribute name="Main-Class" value="com.exponentus.server.Server"/>
 			</manifest>			
 		</jar>
@@ -167,7 +169,7 @@
 				locale="en,RU"/>
 		</tstamp>
 		<!--<copy file="${persistance_OF.dir}\META-INF\persistence.xml" tofile="${classes_OF.dir}\META-INF\persistence.xml"/>-->
-		<jar destfile="${dist_NB3.dir}\${app_OF.name}.jar">
+		<jar destfile="${jar_nb.dir}\${officeframe_jar.name}.jar">
 			<fileset dir="${classes_OF.dir}" />
 			<manifest>
 				<attribute name="Built-Date" value="${TODAY}"/>
@@ -195,7 +197,7 @@
 				locale="en,RU"/>
 		</tstamp>
 		<copy file="${persistance_CP.dir}\META-INF\persistence.xml" tofile="${classes_CP.dir}\META-INF\persistence.xml"/>
-		<jar destfile="${dist_NB3.dir}\${app_jar.name}.jar">
+		<jar destfile="${jar_nb.dir}\${app_nb_jar.name}.jar">
 			<fileset dir="${classes_CP.dir}" />
 			<manifest>
 				<attribute name="Built-Date" value="${TODAY}"/>
@@ -212,16 +214,16 @@
 			<fileset dir="${rule_CP.dir}"/>	
 		</copy>
 		<copy overwrite="true" todir="${tmps_webapps.dir}">
-			<fileset dir="${webapps_NB3.dir}"/>
+			<fileset dir="${webapps_nb.dir}"/>
 			<fileset dir="${webapps_OF.dir}"/>	
 			<fileset dir="${webapps_CP.dir}"/>	
 		</copy>
 		
 		<sync todir="${work.libs}">
-			<fileset dir="${lib_NB3.dir}" />
+			<fileset dir="${libs_nb.dir}" />
 		</sync>
 		<sync todir="${work.xsl}">
-			<fileset dir="${xsl_NB3.dir}" />
+			<fileset dir="${xsl_nb.dir}" />
 		</sync>
 		<sync todir="${work.rule}">
 			<fileset dir="${tmps_rule.dir}" casesensitive="yes">
@@ -236,9 +238,9 @@
 		</sync>
 		<!-- Accountant, Administrator, Reference,Workspace,Staff,MuniciplaProperty -->
 		<echo> 333 </echo>
-		<copy overwrite="true" file="${dist_NB3.dir}\${app_NB3.name}.jar" tofile="${work.dir}\${app_NB3.name}.jar"/>
-		<copy overwrite="true" file="${dist_NB3.dir}\${app_jar.name}.jar" tofile="${work.dir}\libs\${app_jar.name}.jar"/>
-		<copy overwrite="true" file="${dist_NB3.dir}\${app_OF.name}.jar" tofile="${work.dir}\libs\${app_OF.name}.jar"/>
+		<copy overwrite="true" file="${jar_nb.dir}\${app_nb_jar.name}.jar" tofile="${work.dir}\${app_nb_jar.name}.jar"/>
+		<copy overwrite="true" file="${jar_nb.dir}\${app_nb_jar.name}.jar" tofile="${work.dir}\libs\${app_nb_jar.name}.jar"/>
+		<copy overwrite="true" file="${jar_nb.dir}\${officeframe_jar.name}.jar" tofile="${work.dir}\libs\${officeframe_jar.name}.jar"/>
 		<echo> 444 </echo>
 		<!--<copy overwrite="true" file="${backup.dir}\resources\config.properties" tofile="${work.resources}\config.properties"/>-->
 	
