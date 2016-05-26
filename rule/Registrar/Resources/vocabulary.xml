@@ -16,6 +16,10 @@
         <entry lang="RUS">RFID</entry>
         <entry lang="ENG">RFID</entry>
     </sentence>
+    <sentence mode="on" keyword="doc_number">
+        <entry lang="RUS">#</entry>
+        <entry lang="ENG">#</entry>
+    </sentence>
     <sentence mode="on" keyword="time">
         <entry lang="RUS">Время</entry>
         <entry lang="ENG">Time</entry>

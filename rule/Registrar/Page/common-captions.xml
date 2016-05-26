@@ -42,6 +42,7 @@
 
     <caption name="registered"/>
     <caption name="rfid"/>
+    <caption name="doc_number"/>
     <caption name="first_name"/>
     <caption name="last_name"/>
     <caption name="birthday"/>
