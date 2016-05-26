@@ -8,18 +8,18 @@ import javax.persistence.Table;
 
 import com.exponentus.dataengine.jpa.SecureAppEntity;
 
-import reference.model.TypeOfUnit;
+import reference.model.UnitType;
 
 @Entity
 @Table(name = "units")
 @NamedQuery(name = "Unit.findAll", query = "SELECT m FROM Unit AS m ORDER BY m.regDate")
 public class Unit extends SecureAppEntity<UUID> {
 
+	private UnitType cat;
+
 	private String name;
 
 	private String rfid;
-
-	private TypeOfUnit cat;
 
 	public String getRfid() {
 		return rfid;
