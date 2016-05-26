@@ -19,7 +19,7 @@ public class Unit extends SecureAppEntity<UUID> {
 
 	private String rfid;
 
-	private CategoryOfUnit category;
+	private CategoryOfUnit cat;
 
 	public String getRfid() {
 		return rfid;
@@ -35,14 +35,6 @@ public class Unit extends SecureAppEntity<UUID> {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public CategoryOfUnit getCategory() {
-		return category;
-	}
-
-	public void setCategory(CategoryOfUnit category) {
-		this.category = category;
 	}
 
 }
