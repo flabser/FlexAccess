@@ -15,17 +15,16 @@
 	<property name="src_01.dir"				value="${app_NB3.dir}\rule\Administrator\Resources\scripts"/>
 	<property name="persistance_NB3.dir"	value="${app_NB3.dir}\src"/>
 	
-	<property name="app_CP.name"			value="flexaccess"/>
-	<property name="app_CP.dir"				value="c:\workspace\FlexAccess"/>
-	<property name="classes_CP.dir"			value="${app_CP.dir}\classes"/>
-	<property name="dist_CP.dir"			value="${app_CP.dir}\dist"/>
-	<property name="resources_CP.dir"		value="${app_CP.dir}\resources"/>
-	<property name="rule_CP.dir"			value="${app_CP.dir}\rule"/>
-	<property name="webapps_CP.dir"			value="${app_CP.dir}\webapps"/>
-	<property name="persistance_CP.dir"		value="${app_CP.dir}\src"/>
-	<property name="src1.dir"				value="${app_CP.dir}\rule\FlexAccess\Resources\scripts"/>
-	<property name="src2.dir"				value="${app_CP.dir}\rule\Registrar\Resources\scripts"/>
-	<property name="src3.dir"				value="${app_CP.dir}\rule\Stock\Resources\scripts"/>
+	<property name="app_jar.name"			value="flexaccess"/>
+	<property name="app_project_source.dir"	value="c:\workspace\FlexAccess"/>
+	<property name="classes_CP.dir"			value="${app_project_source.dir}\classes"/>
+	<property name="resources_CP.dir"		value="${app_project_source.dir}\resources"/>
+	<property name="rule_CP.dir"			value="${app_project_source.dir}\rule"/>
+	<property name="webapps_CP.dir"			value="${app_project_source.dir}\webapps"/>
+	<property name="persistance_CP.dir"		value="${app_project_source.dir}\src"/>
+	<property name="src1.dir"				value="${app_project_source.dir}\rule\FlexAccess\Resources\scripts"/>
+	<property name="src2.dir"				value="${app_project_source.dir}\rule\Registrar\Resources\scripts"/>
+	<property name="src3.dir"				value="${app_project_source.dir}\rule\Stock\Resources\scripts"/>
 
 	
 	<property name="app_OF.name"			value="officeframe"/>
@@ -142,7 +141,7 @@
 			<fileset dir="${classes_NB3.dir}" />
 			<manifest>
 				<attribute name="Built-Date" value="${TODAY}"/>
-				<attribute name="Class-Path" value="${mf_NB3.classpath} libs/${app_CP.name}.jar libs/${app_OF.name}.jar" />
+				<attribute name="Class-Path" value="${mf_NB3.classpath} libs/${app_jar.name}.jar libs/${app_OF.name}.jar" />
 				<attribute name="Main-Class" value="com.exponentus.server.Server"/>
 			</manifest>			
 		</jar>
@@ -196,7 +195,7 @@
 				locale="en,RU"/>
 		</tstamp>
 		<copy file="${persistance_CP.dir}\META-INF\persistence.xml" tofile="${classes_CP.dir}\META-INF\persistence.xml"/>
-		<jar destfile="${dist_NB3.dir}\${app_CP.name}.jar">
+		<jar destfile="${dist_NB3.dir}\${app_jar.name}.jar">
 			<fileset dir="${classes_CP.dir}" />
 			<manifest>
 				<attribute name="Built-Date" value="${TODAY}"/>
@@ -238,7 +237,7 @@
 		<!-- Accountant, Administrator, Reference,Workspace,Staff,MuniciplaProperty -->
 		<echo> 333 </echo>
 		<copy overwrite="true" file="${dist_NB3.dir}\${app_NB3.name}.jar" tofile="${work.dir}\${app_NB3.name}.jar"/>
-		<copy overwrite="true" file="${dist_NB3.dir}\${app_CP.name}.jar" tofile="${work.dir}\libs\${app_CP.name}.jar"/>
+		<copy overwrite="true" file="${dist_NB3.dir}\${app_jar.name}.jar" tofile="${work.dir}\libs\${app_jar.name}.jar"/>
 		<copy overwrite="true" file="${dist_NB3.dir}\${app_OF.name}.jar" tofile="${work.dir}\libs\${app_OF.name}.jar"/>
 		<echo> 444 </echo>
 		<!--<copy overwrite="true" file="${backup.dir}\resources\config.properties" tofile="${work.resources}\config.properties"/>-->
