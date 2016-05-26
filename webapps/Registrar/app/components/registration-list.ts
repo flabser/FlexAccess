@@ -71,9 +71,13 @@ export class RegistrationListComponent {
         }, 300);
     }
 
-    setSelected(selectedId, event) {
+    toggleSelected(selectedId, event) {
         event.preventDefault();
-        this.selectedId = selectedId;
+        if (this.selectedId === selectedId) {
+            this.selectedId = '';
+        } else {
+            this.selectedId = selectedId;
+        }
     }
 
     handleXhrError(errorResponse) {

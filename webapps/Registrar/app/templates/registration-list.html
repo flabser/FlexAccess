@@ -8,28 +8,35 @@
 </div>
 <div class="content-body">
     <div class="view view-registered">
-        <header class="entries-head hidden">
+        <header class="entries-head">
             <div class="head-wrap">
                 <div class="entry-captions">
-
+                    <span class="vw-photo"><i class="fa fa-camera"></i></span>
+                    <span class="vw-doc-number">{{'doc_number' | translate}}</span>
+                    <span class="vw-person-name">{{'last_name' | translate}} {{'first_name' | translate}}</span>
+                    <span class="vw-birthday">{{'birthday' | translate}}</span>
+                    <span class="vw-gender">{{'gender' | translate}}</span>
+                    <span class="vw-citizenship">{{'country' | translate}}</span>
+                    <span class="vw-expiration-date">{{'expiration_date' | translate}}</span>
                 </div>
             </div>
         </header>
         <div class="entries">
-            <div class="entry-wrap" *ngFor="let reg of registrationList">
-                <div class="entry">
-                    <a class="entry-link" href="#" [class.active]="reg.id == selectedId" (click)="setSelected(reg.id, $event)">
-                        <div class="entry-fields">
-                            <span class="vw-photo">{{reg.photoUrl}}</span>
-                            <span class="vw-doc-number">{{reg.docNumber}}</span>
-                            <span class="vw-name">{{reg.firstName}} {{reg.lastName}}</span>
-                            <span class="vw-birthday">{{reg.birthDay | dateFmt}}</span>
-                            <span class="vw-sex">{{reg.gender}}</span>
-                            <span class="vw-citizenship">{{reg.citizenship?.name}}</span>
-                            <span class="vw-expiration-date">{{reg.expirationDate | dateFmt}}</span>
-                        </div>
-                    </a>
-                </div>
+            <div class="entry-wrap" [class.active]="reg.id == selectedId" *ngFor="let reg of registrationList">
+                <a class="entry-link" href="#" (click)="toggleSelected(reg.id, $event)">
+                    <div class="entry-fields">
+                        <span class="vw-photo">
+                            {{reg.photoUrl}}
+                            <img src="img/icon-user.png"/>
+                        </span>
+                        <span class="vw-doc-number">{{reg.docNumber}}</span>
+                        <span class="vw-person-name">{{reg.lastName}} {{reg.firstName}}</span>
+                        <span class="vw-birthday">{{reg.birthDay | dateFmt}}</span>
+                        <span class="vw-gender">{{reg.gender}}</span>
+                        <span class="vw-citizenship">{{reg.citizenship?.name}}</span>
+                        <span class="vw-expiration-date">{{reg.expirationDate | dateFmt}}</span>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="load" *ngIf="request === 'loading'">

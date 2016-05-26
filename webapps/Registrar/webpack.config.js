@@ -56,7 +56,7 @@ const plugins = basePlugins
 
 module.exports = {
 
-    // devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
+    devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
 
     entry: {
         app: './app/main.ts',

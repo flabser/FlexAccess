@@ -45,10 +45,18 @@ pagination:empty {
 
 /* .view-registered */
 
-.view-registered {}
+.view-registered {
+    margin-top: 20px;
+}
 
 .view .alert {
     margin: 10px 0;
+}
+
+.view-registered .head-wrap {
+    background: transparent;
+    border-bottom-width: 2px;
+    min-height: auto;
 }
 
 .entry-captions {
@@ -56,43 +64,63 @@ pagination:empty {
 }
 
 .entry-captions > span {
-    padding: 2px 4px;
-    vertical-align: middle;
-}
-
-.entry-link.active {
-    font-weight: bold;
+    color: #666;
+    font-size: .9em;
 }
 
 
 /* .vw */
 
+.entry-wrap {
+    background: #fff;
+}
+
+.entry-wrap.active {
+    background: #f5f5f5;
+}
+
+.entry-wrap a {
+    text-decoration: none;
+}
+
+.entry-fields > span {
+    font-size: 1.1em;
+}
+
 .vw-photo {
+    text-align: center;
+    transition: height .15s ease-out;
+    height: 20px;
     width: 80px;
 }
 
-.vw-doc-number {
-    color: #3F51B5;
-    width: 10%;
+.entry-wrap.active .vw-photo {
+    height: 80px;
 }
 
-.vw-name {
+.vw-doc-number {
+    color: #666;
+    width: 140px;
+}
+
+.vw-person-name {
     color: #a94442;
     width: 30%;
 }
 
 .vw-birthday {
     color: #3F51B5;
-    width: 90px;
+    width: 100px;
 }
 
-.vw-sex {
+.vw-gender {
     color: #3F51B5;
     width: 60px;
 }
 
 .vw-citizenship {
     color: #3F51B5;
+    max-width: 200px;
     width: 24%;
 }
 
@@ -101,5 +129,5 @@ pagination:empty {
     position: absolute;
     right: 0;
     text-align: right;
-    width: 90px;
+    width: 100px;
 }

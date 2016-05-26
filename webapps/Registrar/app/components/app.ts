@@ -58,7 +58,6 @@ export class App {
         this.translate.get('brand').subscribe(value => this.HEADER_TITLE = value);
 
         this.appService.getUserProfile().subscribe((resp: any) => {
-            console.log(resp);
             this.loggedUser = resp.employee;
             this.language = resp.language
             this.isReady = true;
