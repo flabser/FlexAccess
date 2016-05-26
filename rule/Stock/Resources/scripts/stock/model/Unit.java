@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import com.exponentus.dataengine.jpa.SecureAppEntity;
 
-import reference.model.CategoryOfUnit;
+import reference.model.TypeOfUnit;
 
 @Entity
 @Table(name = "units")
@@ -19,7 +19,7 @@ public class Unit extends SecureAppEntity<UUID> {
 
 	private String rfid;
 
-	private CategoryOfUnit cat;
+	private TypeOfUnit cat;
 
 	public String getRfid() {
 		return rfid;
