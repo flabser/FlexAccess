@@ -1,0 +1,74 @@
+<!doctype>
+<html>
+
+<head>
+    <title></title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <style>
+        h1,
+        form {
+            display: block;
+            margin: auto;
+            max-width: 768px;
+            width: 100%;
+        }
+
+        input {
+            display: block;
+            font-size: 2em;
+            padding: 4px;
+            margin: 8px auto;
+            width: 100%;
+        }
+
+        button {
+            display: block;
+            font-size: 2em;
+            padding: 4px;
+            margin: 8px auto;
+            width: 100%;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('form[name=login-form]').submit(function(e) {
+                e.preventDefault();
+                //
+                // console.log(this.login.value, this.pwd.value);
+                //
+                var loginData = {
+                    login: this.login.value,
+                    pwd: this.pwd.value
+                };
+
+                $.ajax({
+                    url: 'http://localhost:38700/FlexAccess/rest/session',
+                    type: 'post',
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    // crossDomain: true,
+                    success: function(data) {
+                        $('#auth-result').html(data);
+                    },
+                    data: loginData
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <form name="login-form">
+        <input type="text" name="login" placeholder="Login" required />
+        <input type="password" name="pwd" placeholder="Password" required />
+        <button type="submit">Login</button>
+    </form>
+    <div id="auth-result"></div>
+</body>
+
+</html>
