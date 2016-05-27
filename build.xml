@@ -1,248 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="FlexAccess" default="replace" basedir="c:\ant">
-    <description></description>
+	<description>
+	</description>
 	
 	
-	<property name="app_nb_jar.name"		value="nb"/>
-	<property name="nb_prj.dir"	           	value="c:\workspace\nb"/>
-	<property name="src_nb.dir"			    value="${nb_prj.dir}\src"/>
-	<property name="libs_nb.dir"			value="${nb_prj.dir}\libs"/>
-	<property name="rule_nb.dir"			value="${nb_prj.dir}\rule"/>
-	<property name="webapps_nb.dir"    		value="${nb_prj.dir}\webapps"/>	
-	<property name="xsl_nb.dir"			    value="${nb_prj.dir}\xsl"/>
-	<property name="src_01.dir"				value="${nb_prj.dir}\rule\Administrator\Resources\scripts"/>
-	<property name="persistence_nb.dir" 	value="${nb_prj.dir}\src"/>
+	<!-- Source directory (usually it is IDE workspace path) -->
+	<property name="workspace.dir"         value="c:\workspace"/>
+	<!-- Application path -->
+	<property name="application.dir"       value="C:\tmp\FlexAccess"/>
+	<!-- Temporary folder path -->
+	<property name="tmp.dir"               value="c:\tmp\FlexAccessTMP"/>
+	<!-- Directory for backup  -->
+	<property name="backup.dir"            value="c:\tmp\backup\FlexAccess"/>   
+	
+	
+	<!-- application folders   -->	
+	<property name="application.libs"      value="${application.dir}\libs"/>
+	<property name="application.rule"      value="${application.dir}\rule"/>
+	<property name="application.webapps"   value="${application.dir}\webapps"/>
+	<property name="application.xsl"       value="${application.dir}\xsl"/>
+	<property name="application.resources" value="${application.dir}\resources"/>	
+	
+	
+	<!-- NextBase core source   -->
+	<property name="app_nb_jar.name"		    value="nb"/>
+	<property name="nb_prj.dir"	           	    value="${workspace.dir}\nb"/>
+	<property name="src_nb.dir"			        value="${nb_prj.dir}\src"/>
+	<property name="libs_nb.dir"			    value="${nb_prj.dir}\libs"/>
+	<property name="rule_nb.dir"			    value="${nb_prj.dir}\rule"/>
+	<property name="webapps_nb.dir"    		    value="${nb_prj.dir}\webapps"/>
+	<property name="xsl_nb.dir"			        value="${nb_prj.dir}\xsl"/>
+	<property name="administrator_src.dir"	    value="${nb_prj.dir}\rule\Administrator\Resources\scripts"/>
+	<property name="jpa_xml_nb.dir"        	    value="${src_nb.dir}"/>
+
+	<!-- Officeframe module source   -->
+	<property name="app_officeframe_jar.name"    value="officeframe"/>
+	<property name="officeframe_prj.dir"        value="${workspace.dir}\officeframe"/>
+	<property name="resources_officeframe.dir"  value="${officeframe_prj.dir}\resources"/>
+	<property name="rule_officeframe.dir"       value="${officeframe_prj.dir}\rule"/>
+	<property name="webapps_officeframe.dir"    value="${officeframe_prj.dir}\webapps"/>
+	<property name="reference_src.dir"          value="${officeframe_prj.dir}\rule\Reference\Resources\scripts"/>
+	<property name="staff_src.dir"               value="${officeframe_prj.dir}\rule\Staff\Resources\scripts"/>
+	<property name="workspace_src.dir"          value="${officeframe_prj.dir}\rule\Workspace\Resources\scripts"/>
+	<property name="jpa_xml_officeframe.dir"    value="${officeframe_prj.dir}\src"/>
+
+	 <!-- FlexAccess module source   -->
+	<property name="app_flexaccess_jar.name"	value="flexaccess"/>
+	<property name="flexaceess_prj.dir"       	value="${workspace.dir}\FlexAccess"/>
+	<property name="resources_flexaccess.dir"	value="${flexaceess_prj.dir}\resources"/>
+	<property name="rule_flexaccess.dir"		value="${flexaceess_prj.dir}\rule"/>
+	<property name="webapps_flexaccess.dir"	    value="${flexaceess_prj.dir}\webapps"/>
+	<property name="flexaccess_src.dir"		    value="${flexaceess_prj.dir}\rule\FlexAccess\Resources\scripts"/>
+	<property name="registrar_src.dir"		    value="${flexaceess_prj.dir}\rule\Registrar\Resources\scripts"/>
+	<property name="stock_src.dir"	    	    value="${flexaceess_prj.dir}\rule\Stock\Resources\scripts"/>
+	<property name="jpa_xml_flexaccess.dir"     value="${flexaceess_prj.dir}\src"/>
+
+	<!-- temporary folders   --> 
+	<property name="tmp_rule.dir"		           value="${tmp.dir}\rule"/>
+	<property name="tmp_webapps.dir"	           value="${tmp.dir}\webapps"/>
+	<property name="tmp_classes_nb.dir"            value="${tmp.dir}\nb\classes"/>
+	<property name="tmp_jar_nb.dir"                value="${tmp.dir}\nb\jar"/>
+	<property name="tmp_classes_officeframe.dir"   value="${tmp.dir}\officeframe\classes"/>
+	<property name="tmp_jar_officeframe.dir"       value="${tmp.dir}\officeframe\jar"/>
+	<property name="tmp_classes_flexaccess.dir"    value="${tmp.dir}\flexaccess\classes"/>
+	<property name="tmp_jar_flexaccess.dir"        value="${tmp.dir}\flexaccess\jar"/>
+
 	
 
-    <property name="officeframe_jar.name"   value="officeframe"/>
-    <property name="officeframe_prj.dir"    value="c:\workspace\officeframe"/>
-    <property name="classes_OF.dir"         value="${officeframe_prj.dir}\classes"/>
-    <property name="dist_OF.dir"            value="${officeframe_prj.dir}\dist"/>
-    <property name="resources_OF.dir"       value="${officeframe_prj.dir}\resources"/>
-    <property name="rule_OF.dir"            value="${officeframe_prj.dir}\rule"/>
-    <property name="webapps_OF.dir"         value="${officeframe_prj.dir}\webapps"/> 
-    <property name="src11.dir"              value="${officeframe_prj.dir}\rule\Reference\Resources\scripts"/>
-    <property name="src12.dir"              value="${officeframe_prj.dir}\rule\Staff\Resources\scripts"/>
-    <property name="src13.dir"              value="${officeframe_prj.dir}\rule\Workspace\Resources\scripts"/>
-    <property name="persistance_OF.dir"     value="${officeframe_prj.dir}\src"/>
-    	
-	<property name="app_jar.name"			value="flexaccess"/>
-	<property name="app_project_source.dir"	value="c:\workspace\FlexAccess"/>
-	<property name="classes_CP.dir"			value="${app_project_source.dir}\classes"/>
-	<property name="resources_CP.dir"		value="${app_project_source.dir}\resources"/>
-	<property name="rule_CP.dir"			value="${app_project_source.dir}\rule"/>
-	<property name="webapps_CP.dir"			value="${app_project_source.dir}\webapps"/>
-	<property name="persistance_CP.dir"		value="${app_project_source.dir}\src"/>
-	<property name="src1.dir"				value="${app_project_source.dir}\rule\FlexAccess\Resources\scripts"/>
-	<property name="src2.dir"				value="${app_project_source.dir}\rule\Registrar\Resources\scripts"/>
-	<property name="src3.dir"				value="${app_project_source.dir}\rule\Stock\Resources\scripts"/>
+	<!-- compiler options -->
+	<property name="includeantruntime"	   value="false"/>
+	<property name="compile.debug"		   value="true"/>
+	<property name="compile.deprecation"   value="false"/>
+	<property name="compile.optimize"	   value="true"/>
 
-	
-	
-	<property name="tmp.dir"			value="c:\tmp\FlexAccessTMP"/>
-	<property name="tmps_rule.dir"		value="${tmp.dir}\rule"/>
-	<property name="tmps_webapps.dir"	value="${tmp.dir}\webapps"/>
-	<property name="classes_nb.dir"     value="${tmp.dir}\nb\classes"/>
-	<property name="jar_nb.dir"         value="${tmp.dir}\nb\jar"/>
-	
-<!-- Backup	-->	
-	<property name="backup.dir"			value="c:\backup\FlexAccess"/>
-
-<!-- work folder	-->
-	<property name="work.dir"			value="C:\tmp\FlexAccess"/>
-	<property name="work.libs"			value="${work.dir}\libs"/>
-	<property name="work.rule"			value="${work.dir}\rule"/>
-	<property name="work.webapps"		value="${work.dir}\webapps"/>
-	<property name="work.xsl"			value="${work.dir}\xsl"/>
-	<property name="work.resources"		value="${work.dir}\resources"/>
-	
-<!-- compile options -->
-	<property name="includeantruntime"	value="false"/>
-	<property name="compile.debug"		value="true"/>
-	<property name="compile.deprecation"	value="false"/>
-	<property name="compile.optimize"	value="true"/>
-	
-	<path id="compile_NB3.classpath">
+	<path id="compile_nb.classpath">
 		<fileset dir="${libs_nb.dir}">
 			<include name="**\*.jar"/>
 		</fileset>
 	</path>
-	<path id="compile_CP.classpath">
+	<path id="compile_officeframe.classpath">
 		<fileset dir="${libs_nb.dir}">
 			<include name="**\*.jar"/>
 		</fileset>
-		<fileset dir="${jar_nb.dir}">
+		<fileset dir="${tmp_jar_nb.dir}">
 			<include name="nb.jar"/>
-			<include name="officeframe.jar"/>
 		</fileset>
 	</path>
-	<path id="compile_OF.classpath">
+	<path id="compile_flexaccess.classpath">
 		<fileset dir="${libs_nb.dir}">
 			<include name="**\*.jar"/>
 		</fileset>
-		<fileset dir="${jar_nb.dir}">
+		<fileset dir="${tmp_jar_nb.dir}">
 			<include name="nb.jar"/>
 		</fileset>
+		<fileset dir="${tmp_jar_officeframe.dir}">
+		      <include name="officeframe.jar"/>
+		 </fileset>
 	</path>
-	<path id="svnant.classpath">
-			<fileset dir="c:\ant\lib1">
-				<include name="**\*.jar"/>
-			</fileset>
-	</path> 
 
-	
+	 <target name="backup" description="Backup settings of the application">
+	 	<echo>Making backup original settings files</echo>
+	    <copy overwrite="true" failonerror="false" file="${application.dir}\resources\config.properties" tofile="${backup.dir}\config.properties"/>
+	 	<copy overwrite="true" failonerror="false" file="${application.dir}\cfg.xml" tofile="${backup.dir}\cfg.xml"/>
+	</target>
+	   	
 	<target name="clean" description="Delete generated and temporary directories and files">
-		<delete quiet="true" dir="${classes_nb.dir}"/>
-	 	<delete quiet="true" dir="${jar_nb.dir}"/>
-		<delete quiet="true" dir="${classes_CP.dir}"/>
-	 	<delete quiet="true" dir="${dist_CP.dir}"/>
-		<delete quiet="true" dir="${classes_OF.dir}"/>
-	 	<delete quiet="true" dir="${dist_OF.dir}"/>
-		<delete quiet="true" dir="${tmps_rule.dir}"/>
-	 	<delete quiet="true" dir="${tmps_webapps.dir}"/>
+		<echo>Cleaning application and temporary directories</echo>
+		<delete quiet="true" dir="${application.dir}"/>
+		<delete quiet="true" dir="${tmp.dir}"/>
 	</target>
-	
+
 	<target name="prepare" description="Create directories and files before compile">
-	 	<mkdir dir="${classes_nb.dir}"/>
-	 	<mkdir dir="${jar_nb.dir}"/>
-		<mkdir dir="${classes_CP.dir}"/>
-	 	<mkdir dir="${dist_CP.dir}"/>
-		<mkdir dir="${classes_OF.dir}"/>
-	 	<mkdir dir="${dist_OF.dir}"/>
+		<echo>Prepare the directories</echo>
+		<mkdir dir="${application.dir}"/>
+		<mkdir dir="${tmp.dir}"/>
+		<mkdir dir="${tmp_classes_nb.dir}"/>
+		<mkdir dir="${tmp_jar_nb.dir}"/>
+		<mkdir dir="${tmp_classes_officeframe.dir}"/>
+		<mkdir dir="${tmp_jar_officeframe.dir}"/>
+		<mkdir dir="${tmp_classes_flexaccess.dir}"/>
+		<mkdir dir="${tmp_jar_flexaccess.dir}"/>
 	</target>
-	
-	
-<!-- ++++++++++++++++++++++++++++++++ Compile NB3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
-	<target name="compile_NB3" depends="clean, prepare" description="Compile Java sources">
-		<echo> NB3 compiler </echo>
-		<javac  srcdir="${src_nb.dir}:${src_01.dir}"
-				destdir="${classes_nb.dir}"
+
+	<target name="compile_nb" depends="backup, clean, prepare" description="Compile Java sources">
+		<echo>Compiling NextBase core</echo>
+		<javac  srcdir="${src_nb.dir}:${administrator_src.dir}"
+				destdir="${tmp_classes_nb.dir}"
 				debug="${compile.debug}"
 				deprecation="${compile.deprecation}"
 				optimize="${compile.optimize}"
 				includeantruntime="${includeantruntime}"
 				encoding="utf-8">
-			<classpath refid="compile_NB3.classpath"/>
+			<classpath refid="compile_nb.classpath"/>
 			<compilerarg value="-Xlint:unchecked"/>
 			<compilerarg value="-Xlint:deprecation"/>
-       	</javac>
+		</javac>
 		<tstamp>
 			<format property="TODAY"
 				pattern="HH:mm d-MMMM-yyyy"
 				locale="en,RU"/>
 		</tstamp>
-		<!--<copy file="${persistance_NB3.dir}\META-INF\persistence.xml" tofile="${classes_NB3.dir}\META-INF\persistence.xml"/>-->
-		<pathconvert property="mf_NB3.classpath" pathsep=" " refid="compile_NB3.classpath">
+
+		<pathconvert property="manifest_nb.classpath" pathsep=" " refid="compile_nb.classpath">
 			<map from='${libs_nb.dir}\' to='libs/'/>
 			<filtermapper>
 				<replacestring from="\" to="/"/>
 			</filtermapper>
 		</pathconvert>
-		<copy file="${src_nb.dir}\log4j.xml" tofile="${classes_nb.dir}\log4j.xml"/>
-		<jar destfile="${jar_nb.dir}\${app_nb_jar.name}.jar">
-			<fileset dir="${classes_nb.dir}" />
+		<copy file="${src_nb.dir}\log4j.xml" tofile="${tmp_classes_nb.dir}\log4j.xml"/>
+		<copy overwrite="true" file="${nb_prj.dir}\src\com\exponentus\server\console_commands.txt" tofile="${tmp_classes_nb.dir}\com\exponentus\server\console_commands.txt" />
+		<jar destfile="${tmp_jar_nb.dir}\${app_nb_jar.name}.jar">
+			<fileset dir="${tmp_classes_nb.dir}" />
 			<manifest>
 				<attribute name="Built-Date" value="${TODAY}"/>
-				<attribute name="Class-Path" value="${mf_NB3.classpath} libs/${app_nb_jar.name}.jar libs/${officeframe_jar.name}.jar" />
+				<attribute name="Class-Path" value="${manifest_nb.classpath} libs/${app_nb_jar.name}.jar libs/${app_officeframe_jar.name}.jar" />
 				<attribute name="Main-Class" value="com.exponentus.server.Server"/>
-			</manifest>			
+			</manifest>
 		</jar>
 	</target>
-	
-<!-- ++++++++++++++++++++++++++++++++ Compile OF ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-	<target name="compile_OF" depends="compile_NB3" description="Create JAR distribution">
-	<echo> Officeframe compiler </echo>
-		<javac  srcdir="${src11.dir}:${src12.dir}:${src13.dir}"
-			destdir="${classes_OF.dir}"
+
+	<target name="compile_officeframe" depends="compile_nb" description="Create JAR distribution">
+		<echo>Compiling Officeframe modules</echo>
+		<javac  srcdir="${reference_src.dir}:${staff_src.dir}:${workspace_src.dir}"
+			destdir="${tmp_classes_officeframe.dir}"
 			debug="${compile.debug}"
 			deprecation="${compile.deprecation}"
 			optimize="${compile.optimize}"
 			includeantruntime="${includeantruntime}"
 			encoding="utf-8">
-			<classpath refid="compile_OF.classpath"/>
+			<classpath refid="compile_officeframe.classpath"/>
 			<compilerarg value="-Xlint:unchecked"/>
 			<compilerarg value="-Xlint:deprecation"/>
-       	</javac>
+		</javac>
 		<tstamp>
 			<format property="TODAY"
 				pattern="HH:mm d-MMMM-yyyy"
 				locale="en,RU"/>
 		</tstamp>
-		<!--<copy file="${persistance_OF.dir}\META-INF\persistence.xml" tofile="${classes_OF.dir}\META-INF\persistence.xml"/>-->
-		<jar destfile="${jar_nb.dir}\${officeframe_jar.name}.jar">
-			<fileset dir="${classes_OF.dir}" />
+		<jar destfile="${tmp_jar_officeframe.dir}\${app_officeframe_jar.name}.jar">
+			<fileset dir="${tmp_classes_officeframe.dir}" />
 			<manifest>
 				<attribute name="Built-Date" value="${TODAY}"/>
-			</manifest>			
+			</manifest>
 		</jar>
-	</target>	
-	
- <!-- ++++++++++++++++++++++++++++++++ Compile CP ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
-	<target name="compile_CP" depends="compile_OF" description="Create JAR distribution">
-	<echo> ComProperty compiler </echo>
-		<javac  srcdir="${src1.dir}:${src2.dir}:${src3.dir}"
-			destdir="${classes_CP.dir}"
+	</target>
+
+	<target name="compile_flexaccess" depends="compile_officeframe" description="Create JAR distribution">
+		<echo>Compiling FlexAccess modules </echo>
+		<javac  srcdir="${flexaccess_src.dir}:${registrar_src.dir}:${stock_src.dir}"
+			destdir="${tmp_classes_flexaccess.dir}"
 			debug="${compile.debug}"
 			deprecation="${compile.deprecation}"
 			optimize="${compile.optimize}"
 			includeantruntime="${includeantruntime}"
 			encoding="utf-8">
-			<classpath refid="compile_CP.classpath"/>
+			<classpath refid="compile_flexaccess.classpath"/>
 			<compilerarg value="-Xlint:unchecked"/>
 			<compilerarg value="-Xlint:deprecation"/>
-       	</javac>
+		</javac>
 		<tstamp>
 			<format property="TODAY"
 				pattern="HH:mm d-MMMM-yyyy"
 				locale="en,RU"/>
 		</tstamp>
-		<copy file="${persistance_CP.dir}\META-INF\persistence.xml" tofile="${classes_CP.dir}\META-INF\persistence.xml"/>
-		<jar destfile="${jar_nb.dir}\${app_nb_jar.name}.jar">
-			<fileset dir="${classes_CP.dir}" />
+		<copy file="${jpa_xml_flexaccess.dir}\META-INF\persistence.xml" tofile="${tmp_classes_flexaccess.dir}\META-INF\persistence.xml"/>
+		<jar destfile="${tmp_jar_flexaccess.dir}\${app_flexaccess_jar.name}.jar">
+			<fileset dir="${tmp_classes_flexaccess.dir}" />
 			<manifest>
 				<attribute name="Built-Date" value="${TODAY}"/>
-			</manifest>			
+			</manifest>
 		</jar>
 	</target>
- 
-	
-	<target name="replace" depends="compile_CP" description="Update of the work system">
-	
-		<copy overwrite="true" todir="${tmps_rule.dir}">
-			<fileset dir="${rule_NB3.dir}"/>
-			<fileset dir="${rule_OF.dir}"/>	
-			<fileset dir="${rule_CP.dir}"/>	
+
+
+	<target name="replace" depends="compile_flexaccess" description="Update of the work system">
+		<echo>Copying application program files</echo>
+		<copy overwrite="true" todir="${tmp_rule.dir}">
+			<fileset dir="${rule_nb.dir}"/>
+			<fileset dir="${rule_officeframe.dir}"/>
+			<fileset dir="${rule_flexaccess.dir}"/>
 		</copy>
-		<copy overwrite="true" todir="${tmps_webapps.dir}">
+		<copy overwrite="true" todir="${tmp_webapps.dir}">
 			<fileset dir="${webapps_nb.dir}"/>
-			<fileset dir="${webapps_OF.dir}"/>	
-			<fileset dir="${webapps_CP.dir}"/>	
+			<fileset dir="${webapps_officeframe.dir}"/>
+			<fileset dir="${webapps_flexaccess.dir}"/>
 		</copy>
-		
-		<sync todir="${work.libs}">
+
+		<sync todir="${application.libs}">
 			<fileset dir="${libs_nb.dir}" />
 		</sync>
-		<sync todir="${work.xsl}">
+		<sync todir="${application.xsl}">
 			<fileset dir="${xsl_nb.dir}" />
 		</sync>
-		<sync todir="${work.rule}">
-			<fileset dir="${tmps_rule.dir}" casesensitive="yes">
+		<sync todir="${application.rule}">
+			<fileset dir="${tmp_rule.dir}" casesensitive="yes">
 				<exclude name="**/*.java"/>
 			</fileset>
 		</sync>
-		<sync todir="${work.webapps}">
-			<fileset dir="${tmps_webapps.dir}" />
+		<sync todir="${application.webapps}">
+			<fileset dir="${tmp_webapps.dir}" />
 		</sync>
-		<sync todir="${work.resources}">
-			<fileset dir="${resources_CP.dir}" />
+		<sync todir="${application.resources}">
+			<fileset dir="${resources_flexaccess.dir}" />
 		</sync>
-		<!-- Accountant, Administrator, Reference,Workspace,Staff,MuniciplaProperty -->
-		<echo> 333 </echo>
-		<copy overwrite="true" file="${jar_nb.dir}\${app_nb_jar.name}.jar" tofile="${work.dir}\${app_nb_jar.name}.jar"/>
-		<copy overwrite="true" file="${jar_nb.dir}\${app_nb_jar.name}.jar" tofile="${work.dir}\libs\${app_nb_jar.name}.jar"/>
-		<copy overwrite="true" file="${jar_nb.dir}\${officeframe_jar.name}.jar" tofile="${work.dir}\libs\${officeframe_jar.name}.jar"/>
-		<echo> 444 </echo>
-		<!--<copy overwrite="true" file="${backup.dir}\resources\config.properties" tofile="${work.resources}\config.properties"/>-->
-	
+
+		<echo>Copying application jar files</echo>		
+		<copy overwrite="true" file="${tmp_jar_nb.dir}\${app_nb_jar.name}.jar" tofile="${application.dir}\libs\${app_nb_jar.name}.jar"/>
+		<copy overwrite="true" file="${tmp_jar_officeframe.dir}\${app_officeframe_jar.name}.jar" tofile="${application.dir}\libs\${app_officeframe_jar.name}.jar"/>
+		<copy overwrite="true" file="${tmp_jar_flexaccess.dir}\${app_flexaccess_jar.name}.jar" tofile="${application.dir}\libs\${app_flexaccess_jar.name}.jar"/>
+		<echo>Restore original settings files</echo>
+		<copy overwrite="true"  failonerror="false" file="${backup.dir}\config.properties" tofile="${application.dir}\resources\config.properties"/>
+		<copy overwrite="true"  failonerror="false" file="${backup.dir}\cfg.xml" tofile="${application.dir}\cfg.xml" />
+		<echo>Copy additional files</echo>	
+		<copy overwrite="true" file="${nb_prj.dir}\start.bat" tofile="${application.dir}\start.bat" />
+		<copy overwrite="true" file="${nb_prj.dir}\start.sh" tofile="${application.dir}\start.sh" />
+		<copy overwrite="true" file="${nb_prj.dir}\tcnative-1.dll" tofile="${application.dir}\tcnative-1.dll" />
+		
+		
+
 	</target>
 </project>
