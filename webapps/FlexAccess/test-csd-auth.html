@@ -53,7 +53,7 @@
                     success: function(data) {
                         $('#auth-result').html(JSON.stringify(data));
                     },
-                    data: loginData
+                    data: JSON.stringify(loginData)
                 });
             });
         });
