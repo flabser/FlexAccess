@@ -1,4 +1,4 @@
-package flexaccess.services;
+package accesscontrol.services;
 
 import java.util.Date;
 
@@ -17,8 +17,8 @@ import com.exponentus.rest.pojo.Outcome;
 import com.exponentus.rest.pojo.ServerServiceExceptionType;
 import com.exponentus.scripting._Session;
 
-import flexaccess.dao.ActivityDAO;
-import flexaccess.model.Activity;
+import accesscontrol.dao.ActivityDAO;
+import accesscontrol.model.Activity;
 
 @Path("/")
 public class Service extends RestProvider {
