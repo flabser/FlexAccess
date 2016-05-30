@@ -4,7 +4,7 @@
     <xsltfile>DEFAULT</xsltfile>
     <element mode="ON" type="SCRIPT">
         <events>
-            <doscript source="JAVA_CLASS">flexaccess.page.view.ActivityView</doscript>
+            <doscript source="JAVA_CLASS">accesscontrol.page.view.ActivityView</doscript>
         </events>
     </element>
 </rule>

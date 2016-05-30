@@ -16,7 +16,7 @@
 		<class>reference.model.DepartmentType</class>	
 		<class>reference.model.Position</class>	
 	</persistence-unit>
-	<persistence-unit name="FlexAccess" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="AccessControl" transaction-type="RESOURCE_LOCAL">
 		<!-- Obligatory the application module entities -->
 		<class>administrator.model.User</class>
 		<class>administrator.model.Application</class>
@@ -25,7 +25,7 @@
 		<!-- Common module entities -->
 		<class>com.exponentus.common.model.Attachment</class>		
 		<!-- Specific application entities -->
-		<class>flexaccess.model.Activity</class>
+		<class>accesscontrol.model.Activity</class>
 		<!-- Common Staff module entities -->
 		<class>staff.model.Organization</class>
 		<class>staff.model.Department</class>
