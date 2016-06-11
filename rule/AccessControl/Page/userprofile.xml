@@ -3,7 +3,7 @@
     <caching>NO_CACHING</caching>
     <element mode="ON" type="SCRIPT">
         <events>
-            <doscript source="JAVA_CLASS">flexaccess.page.UserProfile</doscript>
+            <doscript source="JAVA_CLASS">accesscontrol.page.UserProfile</doscript>
         </events>
     </element>
 </rule>
