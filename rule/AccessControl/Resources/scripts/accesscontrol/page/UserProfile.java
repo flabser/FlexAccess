@@ -1,10 +1,7 @@
 package accesscontrol.page;
 
-import java.util.Date;
-
 import com.exponentus.localization.LanguageCode;
 import com.exponentus.scripting._Exception;
-import com.exponentus.scripting._POJOListWrapper;
 import com.exponentus.scripting._Session;
 import com.exponentus.scripting._Validation;
 import com.exponentus.scripting._Validator;
@@ -28,7 +25,6 @@ public class UserProfile extends _DoPage {
 		Employee emp = dao.findByUserId(user.getId());
 		if (emp == null) {
 			emp = new Employee();
-			emp.setRegDate(new Date());
 			User userObj = new User();
 			userObj.setUserName(user.getUserName());
 			userObj.setLogin(user.getLogin());
@@ -39,7 +35,7 @@ public class UserProfile extends _DoPage {
 			emp.setName(user.getLogin());
 		}
 		addContent(emp);
-		addContent(new _POJOListWrapper(new LanguageDAO(session).findAll(), session));
+		addContent(new LanguageDAO(session).findAll());
 		addContent("pagesize", String.valueOf(session.getPageSize()));
 	}
 
