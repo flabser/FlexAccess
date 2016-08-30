@@ -5,6 +5,6 @@ public class AppConst {
 	public static String NAME = "Registrar";
 	public static String NAME_ENG = "Registrar";
 	public static String NAME_RUS = "Регистратор";
-	public static String DEFAULT_URL = "index.html";
+	public static String DEFAULT_PAGE = "registration-view";
 	public static String FT_INDEX_SCOPE = "";
 }
