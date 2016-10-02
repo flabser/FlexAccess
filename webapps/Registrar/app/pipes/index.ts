@@ -1,2 +1,2 @@
-export { DateFormatPipe } from './date-format.pipe';
-export { TextTransformPipe } from './text-transform.pipe';
+export * from './date-format.pipe';
+export * from './text-transform.pipe';

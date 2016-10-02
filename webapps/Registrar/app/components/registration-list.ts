@@ -1,19 +1,12 @@
 import { Component, Inject } from '@angular/core';
-import { Router, Routes, RouteSegment, RouteTree, OnActivate } from '@angular/router';
+import { Router, Routes, ActivatedRoute } from '@angular/router';
 
-import { TranslatePipe } from 'ng2-translate/ng2-translate';
-
-import { TextTransformPipe, DateFormatPipe } from '../pipes';
-import { NotificationService } from '../shared/notification';
-import { PaginationComponent } from '../shared/pagination';
 import { Registration } from '../models';
 import { RegistrationService } from '../services';
 
 @Component({
     selector: '[registration-list]',
-    template: require('../templates/registration-list.html'),
-    pipes: [DateFormatPipe, TranslatePipe, TextTransformPipe],
-    directives: [PaginationComponent]
+    template: require('../templates/registration-list.html')
 })
 
 export class RegistrationListComponent {
@@ -26,16 +19,21 @@ export class RegistrationListComponent {
 
     constructor(
         private router: Router,
-        private regService: RegistrationService,
-        private notifyService: NotificationService
+        private route: ActivatedRoute,
+        private regService: RegistrationService
     ) { }
 
-    routerOnActivate(curr: RouteSegment, prev?: RouteSegment, currTree?: RouteTree, prevTree?: RouteTree) {
-        if (curr.getParam('id')) {
-            this.loadData({ docid: curr.getParam('id') });
-        } else {
-            this.loadData({});
-        }
+
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            let id = params['id'];
+
+            if (id) {
+                this.loadData({ docid: id });
+            } else {
+                this.loadData({});
+            }
+        });
     }
 
     loadData(params?) {

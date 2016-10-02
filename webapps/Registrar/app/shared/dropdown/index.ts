@@ -1,4 +1,2 @@
-import { DropdownComponent } from './dropdown.component';
-import { DropdownToggleComponent } from './dropdown-toggle.component';
-
-export const DROPDOWN_DIRECTIVES = [DropdownComponent, DropdownToggleComponent];
+export * from './dropdown.component';
+export * from './dropdown-toggle.component';

@@ -1,4 +1,4 @@
-<form class="form form-userprofile" autocomplete="off" [ngFormModel]="form">
+<form class="form form-userprofile" autocomplete="off">
     <header class="content-header">
         <button class="btn-back" type="button" (click)="close($event)">
             <i class="fa fa-chevron-left"></i>
@@ -97,11 +97,7 @@
                         </div>
                         <div class="controls">
                             <ul class="input-placeholder list-style-none">
-                                <xsl:for-each select="fields/roles/entry">
-                                    <li>
-                                        <xsl:value-of select="." />
-                                    </li>
-                                </xsl:for-each>
+
                             </ul>
                         </div>
                     </div>
@@ -115,30 +111,7 @@
                         </div>
                         <div class="controls">
                             <select name="pagesize" class="native span2">
-                                <option value="10">
-                                    <xsl:if test="//pagesize = '10'">
-                                        <xsl:attribute name="selected" select="'selected'" />
-                                    </xsl:if>
-                                    10
-                                </option>
-                                <option value="20">
-                                    <xsl:if test="//pagesize = '20'">
-                                        <xsl:attribute name="selected" select="'selected'" />
-                                    </xsl:if>
-                                    20
-                                </option>
-                                <option value="30">
-                                    <xsl:if test="//pagesize = '30'">
-                                        <xsl:attribute name="selected" select="'selected'" />
-                                    </xsl:if>
-                                    30
-                                </option>
-                                <option value="50">
-                                    <xsl:if test="//pagesize = '50'">
-                                        <xsl:attribute name="selected" select="'selected'" />
-                                    </xsl:if>
-                                    50
-                                </option>
+
                             </select>
                         </div>
                     </div>
@@ -147,17 +120,7 @@
                             {{'interface_lang' | translate}}
                         </div>
                         <div class="controls">
-                            <xsl:variable name="currentlang" select="/request/@lang" />
-                            <select name="lang" class="native span2">
-                                <xsl:for-each select="//query[@entity = 'language']/entry">
-                                    <option value="{viewcontent/lang/@id}">
-                                        <xsl:if test="viewcontent/lang/@id = $currentlang">
-                                            <xsl:attribute name="selected" select="'selected'" />
-                                        </xsl:if>
-                                        <xsl:value-of select="viewcontent/lang" />
-                                    </option>
-                                </xsl:for-each>
-                            </select>
+
                         </div>
                     </div>
                     <div class="form-group">

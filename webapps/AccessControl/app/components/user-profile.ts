@@ -1,24 +1,20 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators, ControlGroup, Control, FORM_DIRECTIVES } from '@angular/common';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 import { TranslatePipe } from 'ng2-translate/ng2-translate';
 
-import { TAB_DIRECTIVES } from '../shared/tabs';
 import { AppService } from '../services/app.service';
 import { User } from '../models/user';
 
 @Component({
     selector: '[user-profile]',
-    template: require('../templates/user-profile.html'),
-    directives: [FORM_DIRECTIVES, TAB_DIRECTIVES],
-    providers: [FormBuilder],
-    pipes: [TranslatePipe]
+    template: require('../templates/user-profile.html')
 })
 
 export class UserProfileComponent {
     user: User = new User();
-    form: ControlGroup;
+    form: FormGroup;
 
     constructor(
         private router: Router,

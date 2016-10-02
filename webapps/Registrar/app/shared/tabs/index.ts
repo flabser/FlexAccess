@@ -1,4 +1,2 @@
-import { Tabs } from './tabs';
-import { Tab } from './tab';
-
-export const TAB_DIRECTIVES = [Tabs, Tab];
+export * from './tabs';
+export * from './tab';
